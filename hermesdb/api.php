@@ -44,14 +44,24 @@ $container['db'] = function ($c) {
 //     return $response;
 // });
 $app->get('/getdb', function (Request $request, Response $response, array $args) {
-    $sql = "SELECT re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re join rooms r
-    on  resinfo_id = room_id;";
+    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re 
+    join book_log bl
+    on  re.resinfo_id = bl.bl_reservation
+    join rooms r 
+    on bl.bl_room = r.room_id
+    group by re.resinfo_id;";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
 $app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
-    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re join rooms r on  resinfo_id = room_id WHERE resinfo_id = $id";
+    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re 
+    join book_log bl
+    on  re.resinfo_id = bl.bl_reservation
+    join rooms r 
+    on bl.bl_room = r.room_id
+    WHERE re.resinfo_id = $id
+    group by re.resinfo_id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
