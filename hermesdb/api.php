@@ -65,4 +65,9 @@ $app->get('/getdb/{id}', function (Request $request, Response $response, array $
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
+$app->get('/room', function (Request $request, Response $response, array $args) {
+    $sql = "SELECT room_name from rooms";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $this->response->withJson($sth);
+});
 $app->run();
