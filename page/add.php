@@ -22,31 +22,29 @@
 
 
 <script>
-        
-        $(() => {
-            $("#btnLoad").click(btnLoad_Click);
-        }); 
+    $(() => {
+        $("#btnLoad").click(btnLoad_Click);
+    });
 
-   
-   
-   function btnLoad_Click(){
-    //    alert('sdasdsa');
+
+
+    function btnLoad_Click() {
+        //    alert('sdasdsa');
         var getid = $("#ID").val();
-        var urlAPI = "http://localhost/www/demo.php/getdb/"+getid;
-        $.getJSON(urlAPI ,{
-            format:"json"
-        })
-        .done(function(data){
-            console.log(data);
-            $("#id").text(data["0"]["id"]);
-            $("#name").text(data["0"]["fname"]);
-            $("#lastname").text(data["0"]["lname"]);
-            $("#telno").text(data["0"]["telno"]);
-            $("#status").text(data["0"]["status"]);
-          })
-       .fail(function( jqxhr , testStatus , error){});
-   }
-
+        var urlAPI = "http://localhost/www/demo.php/getdb/" + getid;
+        $.getJSON(urlAPI, {
+                format: "json"
+            })
+            .done(function(data) {
+                console.log(data);
+                $("#id").text(data["0"]["id"]);
+                $("#name").text(data["0"]["fname"]);
+                $("#lastname").text(data["0"]["lname"]);
+                $("#telno").text(data["0"]["telno"]);
+                $("#status").text(data["0"]["status"]);
+            })
+            .fail(function(jqxhr, testStatus, error) {});
+    }
 </script>
 
 <body>
@@ -263,12 +261,12 @@
 </body>
 
 
-    <style>
-        .fixposition{
-    margin-top: 25px;
-    margin-left: 25px;
-}
-    </style>
+<style>
+    .fixposition {
+        margin-top: 25px;
+        margin-left: 25px;
+    }
+</style>
 
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
