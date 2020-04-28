@@ -23,28 +23,27 @@
 
 <script>
     $(() => {
-        $("#btnLoad").click(btnLoad_Click);
+        $("#room_name").click(showData);
     });
 
 
 
-    function btnLoad_Click() {
+    function showData() {
         //    alert('sdasdsa');
-        var getid = $("#ID").val();
-        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/getdb" + getid;
+        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/getdb";
         $.getJSON(urlAPI, {
                 format: "json"
             })
             .done(function(data) {
-                console.log(data);
-                $("#id").text(data["0"]["id"]);
-                $("#fname").text(data["0"]["resinfo_first_name"]);
-                $("#lname").text(data["0"]["resinfo_last_name"]);
-                $("#phone").text(data["0"]["resinfo_telno"]);
-                $("#email").text(data["0"]["resinfo_email""]);
-            })
-            .fail(function(jqxhr, testStatus, error) {});
-    }
+                    console.log(data);
+                    $("#room_name").text(data["room_name"]);
+                    // $("#fname").text(data["0"]["resinfo_first_name"]);
+                    // $("#lname").text(data["0"]["resinfo_last_name"]);
+                    // $("#phone").text(data["0"]["resinfo_telno"]);
+                    // $("#email").text(data["0"]["resinfo_email]);
+                        })
+                        .fail(function(jqxhr, testStatus, error) {});
+                }
 </script>
 
 <body>
@@ -179,31 +178,43 @@
             <!-- End Navbar -->
 
             <div class="container ">
-                <div class="row fixposition">
-                    <h2> ADD RESERVATION </h2>
+                <h2> ADD RESERVATION </h2>
 
-                    <div class="col-md-12 ">
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Room</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">E-mail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td id="fname"></td>
-                                    <td id="lname"></td>
-                                    <td id="phone"></td>
-                                    <td id="email"></td>
-                                </tr>
-                                </tbody>
-                        </table>
+                <div class="row fixposition">
+                    <div class="col-md-2 ">
+                        <div class="form-group">
+                        <label for="">Room</label>
+                            <select class="form-control" id="room_name">
+                                <option>Room</option>
+                                
+
+
+
+
+                               
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label for="">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" id="fname">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" id="lname">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Phone</label>
+                            <input type="text" class="form-control" placeholder="Phone" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="">E-mail</label>
+                            <input type="text" class="form-control" placeholder="E-mail" id="email">
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -284,3 +295,8 @@
 </script>
 
 </html>
+
+<!-- 
+<?php foreach ($room_name as $key => $row) {?>
+                                    <option><?php echo $row['room_name'] ?></option>
+                               <?php } ?> -->
