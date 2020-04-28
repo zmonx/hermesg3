@@ -27,9 +27,9 @@ $container = $app->getContainer();
 $container['db'] = function ($c) {
     $settings = $c->get('settings')['db'];
     $pdo = new PDO(
-        "mysql:host=" . $settings['host'] . ";dbname=" . $settings['dbname'].";charset=UTF8",
+        "mysql:host=" . $settings['host'] . ";dbname=" . $settings['dbname'] . ";charset=UTF8",
         $settings['user'],
-        $settings['pass'] 
+        $settings['pass']
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -51,10 +51,8 @@ $app->get('/getdb', function (Request $request, Response $response, array $args)
 });
 $app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
-    $sql = "SELECT re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re join rooms r on  resinfo_id = room_id;";
-    $sql .=" WHERE resinfo_id = '".$id."'";
+    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re join rooms r on  resinfo_id = room_id WHERE resinfo_id = $id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
 $app->run();
-
