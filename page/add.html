@@ -23,20 +23,17 @@
 <script src="js/jquery-3.5.0.min.js"></script>
 <script>
     $(() => {
-        $('#btnroom').click(showData);
+        // $('#btnroom').click(showData);
     });
 
     function showData() {
         //    alert('sdasdsa');
-        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/getdb";
+        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/room";
         $.getJSON(urlAPI, {
                 format: "json"
             })
             .done(function(data) {
                 console.log(data);
-                $("#room_name").text(data[0]['room_name']);
-                $("#room_id").text(data[0]['room_id']);
-                $("#room_status").text(data[0]['room_status']);
                 var selectionObject = document.getElementById("select");
                 for (var i = 0; i < data.length; i++) {
                     var option = document.createElement("OPTION"),
@@ -47,7 +44,7 @@
                 }
 
             })
-            .fail(function(jqxhr, textStatus, error) {})
+            .fail(function(jqxhr, textStatus, error) {});
     }
 </script>
 
@@ -185,7 +182,6 @@
 
             <div class="container">
                 <h2>ADD RESERVATION</h2>
-
                 <div class="row fixposition">
                     <div class="col-md-2">
                         <form action="post">
