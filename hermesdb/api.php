@@ -49,10 +49,12 @@ $app->get('/getdb', function (Request $request, Response $response, array $args)
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
-// $app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {
-//     $id = $args['id'];
-//     $sql = "SELECT * from person WHERE id =$id";
-//     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-//     return $this->response->withJson($sth);
-// });
+$app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {
+    $id = $args['id'];
+    $sql = "SELECT re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re join rooms r on  resinfo_id = room_id;";
+    $sql .=" WHERE resinfo_id = '".$id."'";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $this->response->withJson($sth);
+});
 $app->run();
+

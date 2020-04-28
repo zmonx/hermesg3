@@ -31,17 +31,17 @@
     function btnLoad_Click() {
         //    alert('sdasdsa');
         var getid = $("#ID").val();
-        var urlAPI = "http://localhost/www/demo.php/getdb/" + getid;
+        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/getdb" + getid;
         $.getJSON(urlAPI, {
                 format: "json"
             })
             .done(function(data) {
                 console.log(data);
                 $("#id").text(data["0"]["id"]);
-                $("#name").text(data["0"]["fname"]);
-                $("#lastname").text(data["0"]["lname"]);
-                $("#telno").text(data["0"]["telno"]);
-                $("#status").text(data["0"]["status"]);
+                $("#fname").text(data["0"]["resinfo_first_name"]);
+                $("#lname").text(data["0"]["resinfo_last_name"]);
+                $("#phone").text(data["0"]["resinfo_telno"]);
+                $("#email").text(data["0"]["resinfo_email""]);
             })
             .fail(function(jqxhr, testStatus, error) {});
     }
@@ -196,23 +196,12 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"></th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td id="fname"></td>
+                                    <td id="lname"></td>
+                                    <td id="phone"></td>
+                                    <td id="email"></td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
