@@ -23,31 +23,7 @@
 <script src="../assets/js/jquery-3.5.0.min.js"></script>
 <script>
     $(() => {
-
-        var query = window.location.search.substring(1);
-        var vars = query.split("=");
-        var ID = vars[1];
-        // alert(ID);
-        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/addroom/" + ID;
-
-        $.getJSON(urlAPI, {
-                format: "json"
-            })
-            .done(function(data) {
-                console.log(data);
-                $("#room1").val(data["0"]["room_name"]);
-                $("#fname1").val(data["0"]["resinfo_first_name"]);
-                $("#lname1").val(data["0"]["resinfo_last_name"]);
-                $("#tel1").val(data["0"]["resinfo_telno"]);
-                $("#email1").val(data["0"]["resinfo_email"]);
-                // $("#room").text(data["0"]["room_name"]);
-                // $("#fname").text(data["0"]["resinfo_first_name"]);
-                // $("#lname").text(data["0"]["resinfo_last_name"]);
-                // $("#tel").text(data["0"]["resinfo_telno"]);
-                // $("#email").text(data["0"]["resinfo_email"]);
-
-            })
-            .fail(function(jqxhr, testStatus, error) {});
+        $("#btnadd").click(btnAdd_Click);
     });
 
     function showRoom() {
@@ -69,6 +45,33 @@
 
             })
             .fail(function(jqxhr, textStatus, error) {});
+    }
+
+    function btnAdd_Click() {
+        // alert('sdasdsa');
+        var idcheck = $(document).ready(function() {
+
+        })
+        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/addroom/" + idcheck;
+
+        $.getJSON(urlAPI, {
+                format: "json"
+            })
+            .done(function(data) {
+                console.log(data);
+                $("#room1").val(data["0"]["room_name"]);
+                $("#fname1").val(data["0"]["resinfo_first_name"]);
+                $("#lname1").val(data["0"]["resinfo_last_name"]);
+                $("#tel1").val(data["0"]["resinfo_telno"]);
+                $("#email1").val(data["0"]["resinfo_email"]);
+                // $("#room").text(data["0"]["room_name"]);
+                // $("#fname").text(data["0"]["resinfo_first_name"]);
+                // $("#lname").text(data["0"]["resinfo_last_name"]);
+                // $("#tel").text(data["0"]["resinfo_telno"]);
+                // $("#email").text(data["0"]["resinfo_email"]);
+
+            })
+            .fail(function(jqxhr, testStatus, error) {});
     }
 </script>
 
@@ -241,6 +244,9 @@
                             </div>
                         </div>
                     </div>
+                    <input type="text" name="" id="ID" />
+                    <br />
+                    <button id="btnLoad">Load</button>
                 </div>
 
 
