@@ -21,59 +21,6 @@
     <link href="../assets/css/demo.css" rel="stylesheet" />
 </head>
 <script src="../assets/js/jquery-3.5.0.min.js"></script>
-<script>
-    $(() => {
-        $("#btnadd").click(btnAdd_Click);
-    });
-
-    function showRoom() {
-        //    alert('sdasdsa');
-        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/room";
-        $.getJSON(urlAPI, {
-                format: "json"
-            })
-            .done(function(data) {
-                console.log(data);
-                var selectionObject = document.getElementById("select");
-                for (var i = 0; i < data.length; i++) {
-                    var option = document.createElement("OPTION"),
-                        txt = document.createTextNode(data[i]['room_name']);
-                    option.appendChild(txt);
-                    option.setAttribute("value", data[i]['room_id']);
-                    select.insertBefore(option, select.lastChild);
-                }
-
-            })
-            .fail(function(jqxhr, textStatus, error) {});
-    }
-
-    function btnAdd_Click() {
-        // alert('sdasdsa');
-        var idcheck = $(document).ready(function() {
-
-        })
-        var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/addroom/" + idcheck;
-
-        $.getJSON(urlAPI, {
-                format: "json"
-            })
-            .done(function(data) {
-                console.log(data);
-                $("#room1").val(data["0"]["room_name"]);
-                $("#fname1").val(data["0"]["resinfo_first_name"]);
-                $("#lname1").val(data["0"]["resinfo_last_name"]);
-                $("#tel1").val(data["0"]["resinfo_telno"]);
-                $("#email1").val(data["0"]["resinfo_email"]);
-                // $("#room").text(data["0"]["room_name"]);
-                // $("#fname").text(data["0"]["resinfo_first_name"]);
-                // $("#lname").text(data["0"]["resinfo_last_name"]);
-                // $("#tel").text(data["0"]["resinfo_telno"]);
-                // $("#email").text(data["0"]["resinfo_email"]);
-
-            })
-            .fail(function(jqxhr, testStatus, error) {});
-    }
-</script>
 
 <body>
 
