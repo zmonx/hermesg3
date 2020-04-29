@@ -82,4 +82,8 @@ $app->get('/room', function (Request $request, Response $response, array $args) 
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
+$app->get('/saveaddroom', function (Request $request, Response $response, array $args) {
+    $params = $request->getQueryParams();
+    print_r($params);
+});
 $app->run();
