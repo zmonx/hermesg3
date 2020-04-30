@@ -17,6 +17,7 @@ $(() => {
             $("#email1").val(data["0"]["resinfo_email"]);
         })
         .fail(function(jqxhr, testStatus, error) {});
+
     $("#save").click(Save);
 
 });
@@ -43,6 +44,5 @@ function showRoom() {
 }
 
 function Save() {
-    var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/saveaddroom?resinfo_id=" + ID + "&room_id=" + $('#select').val();
-
+    window.location.replace("http://localhost/hermesg3/hermesdb/api.php/saveaddroom/" + ID + "/" + $('#select').val());
 }
