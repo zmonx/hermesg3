@@ -45,4 +45,5 @@ function showRoom() {
 
 function Save() {
     window.location.replace("http://localhost/hermesg3/hermesdb/api.php/saveaddroom/" + ID + "/" + $('#select').val());
+
 }
