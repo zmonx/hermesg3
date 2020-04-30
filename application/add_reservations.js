@@ -43,6 +43,6 @@ function showRoom() {
 }
 
 function Save() {
-    var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/saveaddroom?room_id=" + $("#select").val() + "&lastname=" + $("#lname1").val() + "&firstname=" + $("#fname1").val() + "&tel=" + $("#tel1").val() + $("#email1").val();
+    var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/saveaddroom?resinfo_id=" + ID + "&room_id=" + $('#select').val();
 
 }

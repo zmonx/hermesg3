@@ -78,13 +78,15 @@ $app->get('/addroom/{id}', function (Request $request, Response $response, array
     return $this->response->withJson($sth);
 });
 $app->get('/room', function (Request $request, Response $response, array $args) {
-    $sql = "SELECT * from rooms";
+    $sql = "SELECT * from rooms r join room_status rs on r.room_status = rs.rstatus_id WHERE rs.rstatus_eng='Avaliable'";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
 $app->get('/saveaddroom', function (Request $request, Response $response, array $args) {
     $params = $request->getQueryParams();
-    $sql = "INSERT INTO reservation_info( resinfo_code, resinfo_first_name, resinfo_last_name,resinfo_telno,resinfo_email, resinfo_comments, resinfo_bookdate, resinfo_agency, resinfo_number, resinfo_flag)
-    ";
+    $sql = "INSERT INTO reservation_info (resinfo_code, resinfo_first_name, resinfo_last_name, resinfo_telno, resinfo_email, resinfo_comments, resinfo_bookdate, resinfo_agency, resinfo_number, resinfo_flag )
+    SELECT resinfo_code, resinfo_first_name, resinfo_last_name, resinfo_telno, resinfo_email, resinfo_comments, resinfo_bookdate, resinfo_agency, resinfo_number, resinfo_flag
+    FROM reservation_info WHERE resinfo_id = $params['resinfo_id']";
+    print_r($params);
 });
 $app->run();
