@@ -34,7 +34,7 @@ function showRoom() {
                 var option = document.createElement("OPTION"),
                     txt = document.createTextNode(data[i]['room_name']);
                 option.appendChild(txt);
-                option.setAttribute("value", data[i]['room_name']);
+                option.setAttribute("value", data[i]['room_id']);
                 select.insertBefore(option, select.lastChild);
                 $("#element-id").val(data[i]['room_id']);
             }
@@ -43,6 +43,6 @@ function showRoom() {
 }
 
 function Save() {
-    var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/saveaddroom" + $("#select").val() + $("#lname1").val() + $("#fname1").val() + $("#tel1").val() + $("#email1").val();
+    var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/saveaddroom?room_id=" + $("#select").val() + "&lastname=" + $("#lname1").val() + "&firstname=" + $("#fname1").val() + "&tel=" + $("#tel1").val() + $("#email1").val();
 
 }

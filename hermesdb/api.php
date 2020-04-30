@@ -44,7 +44,7 @@ $container['db'] = function ($c) {
 //     return $response;
 // });
 $app->get('/getdb', function (Request $request, Response $response, array $args) {
-    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re 
+    $sql = "SELECT * from reservation_info re 
     join book_log bl
     on  re.resinfo_id = bl.bl_reservation
     join rooms r 
@@ -55,7 +55,7 @@ $app->get('/getdb', function (Request $request, Response $response, array $args)
 });
 $app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
-    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re 
+    $sql = "SELECT * from reservation_info re 
     join book_log bl
     on  re.resinfo_id = bl.bl_reservation
     join rooms r 
@@ -67,7 +67,7 @@ $app->get('/getdb/{id}', function (Request $request, Response $response, array $
 });
 $app->get('/addroom/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
-    $sql = "SELECT re.resinfo_id , r.room_id,re.resinfo_first_name , re.resinfo_last_name ,re.resinfo_telno ,re.resinfo_email ,r.room_name from reservation_info re 
+    $sql = "SELECT *from reservation_info re 
     join book_log bl
     on  re.resinfo_id = bl.bl_reservation
     join rooms r 
@@ -78,12 +78,13 @@ $app->get('/addroom/{id}', function (Request $request, Response $response, array
     return $this->response->withJson($sth);
 });
 $app->get('/room', function (Request $request, Response $response, array $args) {
-    $sql = "SELECT room_name from rooms";
+    $sql = "SELECT * from rooms";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
 $app->get('/saveaddroom', function (Request $request, Response $response, array $args) {
     $params = $request->getQueryParams();
-    print_r($params);
+    $sql = "INSERT INTO reservation_info( resinfo_code, resinfo_first_name, resinfo_last_name,resinfo_telno,resinfo_email, resinfo_comments, resinfo_bookdate, resinfo_agency, resinfo_number, resinfo_flag)
+    ";
 });
 $app->run();
