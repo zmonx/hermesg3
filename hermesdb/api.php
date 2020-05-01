@@ -82,14 +82,12 @@ $app->get('/room', function (Request $request, Response $response, array $args) 
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
-$app->get('/saveaddroom/{resinfo_id}/{room_id}', function (Request $request, Response $response, array $args) {
+$app->post('/saveadd/{resinfo_id}/{room_id}', function (Request $request, Response $response, array $args) {
     $resinfo = $args['resinfo_id'];
     $room_id = $args['room_id'];
     $sql = "INSERT INTO reservation_info (resinfo_code, resinfo_first_name, resinfo_last_name, resinfo_telno, resinfo_email, resinfo_comments, resinfo_bookdate, resinfo_agency, resinfo_number, resinfo_flag )
     SELECT resinfo_code, resinfo_first_name, resinfo_last_name, resinfo_telno, resinfo_email, resinfo_comments, resinfo_bookdate, resinfo_agency, resinfo_number, resinfo_flag
     FROM reservation_info WHERE resinfo_id = $resinfo";
     $this->db->query($sql);
-    header("location:http://localhost/hermesg3/page/add_reservations.html?id=" + $resinfo);
-    exit(0);
 });
 $app->run();
