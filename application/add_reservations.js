@@ -33,7 +33,6 @@ function showRoom() {
                 option.appendChild(txt);
                 option.setAttribute("value", data[i]["room_id"]);
                 select.insertBefore(option, select.lastChild);
-                $("#element-id").val(data[i]["room_id"]);
             }
         })
         .fail(function(jqxhr, textStatus, error) {});
