@@ -19,9 +19,10 @@
     <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/css/demo.css" rel="stylesheet" />
+    <script src="../assets/js/jquery-3.5.0.min.js"></script>
+    <script src="../application/add_reservations.js"></script>
+    <script src="../application/x_button.js"></script>
 </head>
-<script src="../assets/js/jquery-3.5.0.min.js"></script>
-<script src="../application/add_reservations.js"></script>
 
 <body>
 
@@ -165,9 +166,10 @@
                                 </div>
                                 <div class="col-md-3 mt-4">
                                     <button type="submit" id="save" class="btn btn-success">S</button>
-                                    <button type="submit" id="cancel" class="btn btn-warning">M</button>
-                                    <button type="submit" id="move" class="btn btn-info">X</button>
-
+                                    <button type="submit" id="move" class="btn btn-info">M</button>
+                                                                        <!-- link to page  -->
+                                    <button onclick="window.location.href='notifications.html'" type="submit" id="cancel" class="btn btn-warning">X</button>
+                                    
                                 </div>
                             </div>
                         </div>
