@@ -10,7 +10,6 @@ $(() => {
         })
         .done(function(data) {
             console.log(data);
-
             $("#fname1").val(data["0"]["resinfo_first_name"]);
             $("#lname1").val(data["0"]["resinfo_last_name"]);
             $("#tel1").val(data["0"]["resinfo_telno"]);
