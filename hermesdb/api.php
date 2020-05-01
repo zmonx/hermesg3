@@ -96,11 +96,11 @@ $app->post('/saveadd/{resinfo_id}/{room_id}', function (Request $request, Respon
     FROM reservation_info WHERE resinfo_id = $resinfo";
     $this->db->query($sql1);
     $sql2 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_timestamp, bl_room, bl_status, bl_price, bl_incbreakfast, bl_breakfast, bl_comment)
-    SELECT bl_reservation, bl_ginfo, bl_checkin, bl_timestamp, bl_room, bl_status, bl_price, bl_incbreakfast, bl_breakfast, bl_comment
+    SELECT bl_reservation, bl_ginfo, bl_checkin, bl_timestamp, '$room_id', bl_status, bl_price, bl_incbreakfast, bl_breakfast, bl_comment
     FROM book_log WHERE bl_id = $bl_id";
     $this->db->query($sql2);
     $sql3 = "INSERT INTO guest_info (ginfo_title_name, ginfo_first_name, ginfo_last_name, ginfo_passport_id, ginfo_birthday, ginfo_sex, ginfo_company, ginfo_nation, ginfo_email, ginfo_telno, ginfo_mail_addr, ginfo_bill_addr, ginfo_comment, ginfo_flag, ginfo_room, ginfo_in, ginfo_out, ginfo_night, ginfo_price, ginfo_rateplan, ginfo_full_price, ginfo_status, ginfo_price_total, ginfo_passport_image, ginfo_selfie_image, ginfo_credit_card, ginfo_payment, ginfo_tax, ginfo_empfront, ginfo_update, ginfo_checkin, ginfo_checkout, ginfo_tax_id, ginfo_name_bill)
-    SELECT ginfo_title_name, ginfo_first_name, ginfo_last_name, ginfo_passport_id, ginfo_birthday, ginfo_sex, ginfo_company, ginfo_nation, ginfo_email, ginfo_telno, ginfo_mail_addr, ginfo_bill_addr, ginfo_comment, ginfo_flag, ginfo_room, ginfo_in, ginfo_out, ginfo_night, ginfo_price, ginfo_rateplan, ginfo_full_price, ginfo_status, ginfo_price_total, ginfo_passport_image, ginfo_selfie_image, ginfo_credit_card, ginfo_payment, ginfo_tax, ginfo_empfront, ginfo_update, ginfo_checkin, ginfo_checkout, ginfo_tax_id, ginfo_name_bill
+    SELECT ginfo_title_name, ginfo_first_name, ginfo_last_name, ginfo_passport_id, ginfo_birthday, ginfo_sex, ginfo_company, ginfo_nation, ginfo_email, ginfo_telno, ginfo_mail_addr, ginfo_bill_addr, ginfo_comment, ginfo_flag, '$room_id', ginfo_in, ginfo_out, ginfo_night, ginfo_price, ginfo_rateplan, ginfo_full_price, ginfo_status, ginfo_price_total, ginfo_passport_image, ginfo_selfie_image, ginfo_credit_card, ginfo_payment, ginfo_tax, ginfo_empfront, ginfo_update, ginfo_checkin, ginfo_checkout, ginfo_tax_id, ginfo_name_bill
     FROM guest_info WHERE ginfo_id = $bl_ginfo";
     $this->db->query($sql3);
 });
