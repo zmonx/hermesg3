@@ -103,5 +103,7 @@ $app->post('/saveadd/{resinfo_id}/{room_id}', function (Request $request, Respon
     SELECT ginfo_title_name, ginfo_first_name, ginfo_last_name, ginfo_passport_id, ginfo_birthday, ginfo_sex, ginfo_company, ginfo_nation, ginfo_email, ginfo_telno, ginfo_mail_addr, ginfo_bill_addr, ginfo_comment, ginfo_flag, '$room_id', ginfo_in, ginfo_out, ginfo_night, ginfo_price, ginfo_rateplan, ginfo_full_price, ginfo_status, ginfo_price_total, ginfo_passport_image, ginfo_selfie_image, ginfo_credit_card, ginfo_payment, ginfo_tax, ginfo_empfront, ginfo_update, ginfo_checkin, ginfo_checkout, ginfo_tax_id, ginfo_name_bill
     FROM guest_info WHERE ginfo_id = $bl_ginfo";
     $this->db->query($sql3);
+    $sql4 = "UPDATE rooms set room_status ='0'where room_id = '$room_id'";
+    $this->db->query($sql4);
 });
 $app->run();
