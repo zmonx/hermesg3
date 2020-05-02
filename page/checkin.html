@@ -154,61 +154,83 @@
                         </div>
                     </div>
                 </nav>
-                <!-- End Navbar -->
 
                 <div class="content">
-                    <div class="card ">
+                    <div class="card">
                         <div class="card-head">
                             <div class="row">
-                                <div class="col-md-9">
-                                    <h2 class="ml-4"> Check In</h2>
+                                <div class="col-md-12 text-center">
+                                    <h4>September 9th 2018, 7:33:52 am</h4>
                                     <hr>
                                 </div>
+                            
                             </div>
                         </div>
-                        <div class="card text-center" >
-                            <div class="card-header bg-primary" >
-                                 September 9th  2018, 7:33:52 am
-                            </div>                     
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="mr-sm-2">Show</label>
+                                    <select class="custom-select mr-sm-2" id=" ">
+                                        <option selected>10</option>
+                                        <option value="1">11</option>
+                                        <option value="2">12</option>
+                                        <option value="3">13</option>
+                                    </select>
+                                    <label class="mr-sm-2">entries</label>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-3 mt-2">search</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="search" placeholder="search">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">-</th>
+                                        <th scope="col"><center>Guest name</center></th>
+                                        <th scope="col"><center>Room</center></th>
+                                        <th scope="col"><center>Conrect Name</center></th>
+                                        <th scope="col"><center>Phone</center></th>
+                                        <th scope="col"><center>Agency</center></th>
+                                        <th scope="col"><center>Book Detes</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            <button type="submit" id="Agency" class="btn btn-primary"> + info </button>
+                                        </th>
+                                        <td>Chanankorn jandaeng</td>
+                                        <td>R101</td>
+                                        <td>Walk in</td>
+                                        <td>087-887519</td>
+                                        <td>Chanankorn</td>
+                                        <td>2018-09-09 07:31:30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                <label class="mr-sm-2">Showing 1 to 1 of 1 entries</label>
+                            </div>
+
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Show</h6>
-                            </div>
-                            <div class="col-md-6">
-            
-                            </div>
-                         </div>
                     </div>
                 </div>
-                <footer class="footer footerfix">
-                    <div class="container-fluid">
-                        <nav>
-                            <ul class="footer-menu">
-                                <li>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">Company</a>
-                                </li>
-                                <li>
-                                    <a href="#">Portfolio</a>
-                                </li>
-                                <li>
-                                    <a href="#">Blog</a>
-                                </li>
-                            </ul>
-                            <p class="copyright text-center">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>
-                                <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                            </p>
-                        </nav>
-                    </div>
-                </footer>
-            </div>
     </body>
 
     <style>
@@ -234,4 +256,15 @@
     <script src="../assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
     <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/js/demo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
+
+            demo.showNotification();
+        });
+    </script>
+    <script src="../application/add_reservations.js"></script>
+    <script src="../application/save_addroom.js"></script>
+
 </html>
