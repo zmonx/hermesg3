@@ -16,6 +16,7 @@ $(() => {
             $("#email1").val(data["0"]["resinfo_email"]);
         })
         .fail(function(jqxhr, testStatus, error) {});
+    showRoom();
 });
 
 function showRoom() {
