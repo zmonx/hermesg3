@@ -23,8 +23,9 @@ $(() => {
             $("#room_price").val(data["0"]["bl_price"]);
             $("#padd").val(data["0"]["ginfo_mail_addr"]);
             $("#badd").val(data["0"]["ginfo_comment"]);
-          
-
+            $("#sex").val(data["0"]["ginfo_sex"]);
+            $("#incbreakfast").val(data["0"]["bl_incbreakfast"]);
+            $("#breakfast").val(data["0"]["bl_breakfast"]);
         })
         .fail(function(jqxhr, testStatus, error) {});
 });
