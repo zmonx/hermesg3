@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim
+        INFORMATION GUEST
     </title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
     <!--     Fonts and icons     -->
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/css/demo.css" rel="stylesheet" />
@@ -25,6 +26,7 @@
 </head>
 
 <body>
+
     <body>
         <div class="wrapper">
             <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
@@ -155,43 +157,29 @@
                 </nav>
                 <!-- End Navbar -->
                 <div class="content">
-                   
-                    <!-- <div class="fixposition">
-                        <strong>Stay date : </strong><span id="staydate1"></span> to <span id="staydate2"></span>
-                        <strong>Book Date : </strong><span id="bookdate"></span>
-                        <strong>By : </strong><span id="who"></span>
-                        <strong>Agency : </strong><span id="agency"></span>
-                        <strong>Phone : </strong><span id="phone"></span><br>
-                        <strong>Room : </strong><span id="room_id"></span>
-                        <strong>Type : </strong><span id="type"></span> 
-                        <strong>Building : </strong><span id="building"></span>
-                        <strong>Views : </strong><span id="views"></span>
-                    </div> -->
-
-
-
-
 
                     <div class="card">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                             </div>
-                            <div class="col-md 4 mt-4">
-                                <button class="btn btn-primary btn-round">Check Out</button>
-                                <button class="btn btn-danger btn-round">Request C/O</button>
-                                <button class="btn btn-warning btn-round">Print</button>
-                                <button class="btn btn-info btn-round">Close</button>
+                            <div class="col-md-3 mt-4">
+                                <button class="btn btn-primary btn-round btn-sm">Check Out</button>
+                                <button class="btn btn-danger btn-round btn-sm">Request C/O</button>
+                                <button class="btn btn-warning btn-round btn-sm">Print</button>
+                                <button class="btn btn-info btn-round btn-sm">Close</button>
                             </div>
-                            <hr>
                         </div>
+
                         <div class="card-head">
+                            <hr>
                             <div class="row">
+
                                 <div class="col-md-10">
                                     <h3 class="mt-4 fixposition"> INFORMATION  <span class="fname"></span> <span class="lname"></span></h3>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <button type="submit" id="save" class="btn btn-success">Save</button>
-                                    <button type="submit" id="cancel" class="btn btn-warning">Cancel</button>
+                                    <button type="submit" id="save" class="btn btn-success ">Save</button>
+                                    <button type="submit" id="cancel" class="btn btn-warning ">Cancel</button>
                                 </div>
                             </div>
                             <hr>
@@ -223,29 +211,53 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Nationality : </label>
-                                    <input type="text" class="form-control" id="Nationality" />
+                                    <select class="form-control" id="nation">
+                                        <option value="defult">N/A</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">E-mail : </label>
                                     <input type="text" class="form-control" id="email" />
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="">Sex : </label>
-                                    <input type="text" class="form-control" id="sex" />
+                                    <label for="">Sext : </label>
+                                    <select class="form-control" id="sex">
+                                        <option value="defult">N/A</option>
+                                    </select>
+
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-3">
                                     <label for="">Including Breakfast : </label>
-                                    <input type="text" class="form-control" id="inbreakfast" />
+                                    <select class="form-control" id="inbreakfast">
+                                        <option value="defult">No</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="">Breakfast </label>
-                                    <input type="text" class="form-control" id="breakfast" />
+                                    <label for="">Breakfast : </label>
+                                    <select class="form-control" id="breakfast">
+                                        <option value="defult">N/A</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Room Price : </label>
+                                    <input type="text" class="form-control" id="room_price" />
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="">Post Address : </label>
+                                    <input type="text" class="form-control" id="room_price" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Billing Address : </label>
+                                    <input type="text" class="form-control" id="room_price" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Notes : </label>
                                     <input type="text" class="form-control" id="room_price" />
                                 </div>
                             </div>
@@ -287,7 +299,6 @@
 
     <style>
         .fixposition {
-          
             margin-left: 15px;
         }
     </style>
