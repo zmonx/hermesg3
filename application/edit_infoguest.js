@@ -10,10 +10,21 @@ $(() => {
         })
         .done(function(data) {
             console.log(data);
-            $("#fname1").val(data["0"]["resinfo_first_name"]);
-            $("#lname1").val(data["0"]["resinfo_last_name"]);
-            $("#tel1").val(data["0"]["resinfo_telno"]);
-            $("#email1").val(data["0"]["resinfo_email"]);
+            $("#fname").val(data["0"]["ginfo_first_name"]);
+            $("#lname").val(data["0"]["ginfo_last_name"]);
+            $("#passport").val(data["0"]["ginfo_passport_id"]);
+            $("#phone").val(data["0"]["ginfo_telno"]);
+            $("#bd").val(data["0"]["ginfo_birthday"]);
+            $("#nation").val(data["0"]["ginfo_nation"]);
+            $("#email").val(data["0"]["ginfo_email"]);
+            $("#sex").val(data["0"]["ginfo_sex"]);
+            $("#inbreakfast").val(data["0"]["bl_incbreakfast"]);
+            $("#breakfast").val(data["0"]["bl_breakfast"]);
+            $("#room_price").val(data["0"]["bl_price"]);
+            $("#padd").val(data["0"]["ginfo_mail_addr"]);
+            $("#badd").val(data["0"]["ginfo_comment"]);
+          
+
         })
         .fail(function(jqxhr, testStatus, error) {});
 });
