@@ -2,7 +2,7 @@ $(() => {
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
-    $("#save").click(save);
+    $("#save_add_room").click(save);
 });
 
 function save() {
