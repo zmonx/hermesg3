@@ -3,7 +3,7 @@ $(() => {
     var vars = query.split("=");
     var ID = vars[1];
     // alert(ID);
-    var urlAPI = "http://localhost/hermesg3/hermesdb/api.php/editguest/" + ID;
+    var urlAPI = "http://localhost/hermes/api.php/editguest/" + ID;
 
     $.getJSON(urlAPI, {
             format: "json",
