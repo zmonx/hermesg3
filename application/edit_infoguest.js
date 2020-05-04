@@ -10,22 +10,22 @@ $(() => {
         })
         .done(function(data) {
             console.log(data);
-            $("#fname").val(data["0"]["ginfo_first_name"]);
-            $("#lname").val(data["0"]["ginfo_last_name"]);
-            $("#passport").val(data["0"]["ginfo_passport_id"]);
-            $("#phone").val(data["0"]["ginfo_telno"]);
-            $("#bd").val(data["0"]["ginfo_birthday"]);
-            $("#nation").val(data["0"]["ginfo_nation"]);
-            $("#email").val(data["0"]["ginfo_email"]);
-            $("#sex").val(data["0"]["ginfo_sex"]);
-            $("#inbreakfast").val(data["0"]["bl_incbreakfast"]);
-            $("#breakfast").val(data["0"]["bl_breakfast"]);
-            $("#room_price").val(data["0"]["bl_price"]);
-            $("#padd").val(data["0"]["ginfo_mail_addr"]);
-            $("#badd").val(data["0"]["ginfo_comment"]);
-            $("#sex").val(data["0"]["ginfo_sex"]);
-            $("#incbreakfast").val(data["0"]["bl_incbreakfast"]);
-            $("#breakfast").val(data["0"]["bl_breakfast"]);
+            $("#fname_edit_infoguest").val(data["0"]["ginfo_first_name"]);
+            $("#lname_edit_infoguest").val(data["0"]["ginfo_last_name"]);
+            $("#passport_edit_infoguest").val(data["0"]["ginfo_passport_id"]);
+            $("#phone_edit_infoguest").val(data["0"]["ginfo_telno"]);
+            $("#bd_edit_infoguest").val(data["0"]["ginfo_birthday"]);
+            $("#nation_edit_infoguest").val(data["0"]["ginfo_nation"]);
+            $("#email_edit_infoguest").val(data["0"]["ginfo_email"]);
+            $("#sex_edit_infoguest").val(data["0"]["ginfo_sex"]);
+            $("#inbreakfast_edit_infoguest").val(data["0"]["bl_incbreakfast"]);
+            $("#breakfast_edit_infoguest").val(data["0"]["bl_breakfast"]);
+            $("#room_price_edit_infoguest").val(data["0"]["bl_price"]);
+            $("#padd_edit_infoguest").val(data["0"]["ginfo_mail_addr"]);
+            $("#badd_edit_infoguest").val(data["0"]["ginfo_comment"]);
+            $("#sex_edit_infoguest").val(data["0"]["ginfo_sex"]);
+            $("#incbreakfast_edit_infoguest").val(data["0"]["bl_incbreakfast"]);
+            $("#breakfast_edit_infoguest").val(data["0"]["bl_breakfast"]);
         })
         .fail(function(jqxhr, testStatus, error) {});
 
