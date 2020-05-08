@@ -3,24 +3,24 @@ $(() => {
   var vars = query.split("=");
   var ID = vars[1];
   // alert(ID);
-  var urlAPI = "http://localhost/hermes/api.php/editguest/" + ID;
+  var urlAPI = "http://localhost/hermesg3/api.php/editguest/" + ID;
 
   $.getJSON(urlAPI, {
     format: "json",
   })
     .done(function (data) {
       console.log(data);
-
-      $("#show_checkin_edit_infoguest").val(data["0"]["ginfo_in"]);
-      $("#show_checkout_edit_infoguest").val(data["0"]["ginfo_out"]);
-      $("#show_bookdate_edit_infoguest").val(data["0"]["ginfo_update"]);
-      $("#show_fname_edit_infoguest").val(data["0"]["ginfo_first_name"]);
-      $("#show_lname_edit_infoguest").val(data["0"]["ginfo_last_name"]);
-      $("#show_phone_edit_infoguest").val(data["0"]["ginfo_telno"]);
-      $("#show_room_edit_infoguest").val(data["0"]["ginfo_room"]);
-      $("#show_type_edit_infoguest").val(data["0"]["rtype_eng"]);
-      $("#show_building_edit_infoguest").val(data["0"]["room_building"]);
-      $("#show_views_edit_infoguest").val(data["0"]["bl_breakfast"]);
+      
+      $("#show_checkin").text(data["0"]["ginfo_in"]);
+      $("#show_checkout").text(data["0"]["ginfo_out"]);
+      $("#show_bookdate").text(data["0"]["ginfo_update"]);
+      $("#show_fname").text(data["0"]["ginfo_first_name"]);
+      $("#show_lname").text(data["0"]["ginfo_last_name"]);
+      $("#show_phone").text(data["0"]["ginfo_telno"]);
+      $("#show_room").text(data["0"]["ginfo_room"]);
+      $("#show_type").text(data["0"]["rtype_eng"]);
+      $("#show_building").text(data["0"]["room_building"]);
+      $("#show_views").text(data["0"]["rview_eng"]);
 
       $("#fname_edit_infoguest").val(data["0"]["ginfo_first_name"]);
       $("#lname_edit_infoguest").val(data["0"]["ginfo_last_name"]);
@@ -41,8 +41,5 @@ $(() => {
     })
     .fail(function (jqxhr, testStatus, error) {});
 
-  $(document).ready(function () {
-    // Material Select
-    $(".mdb-select").materialSelect({});
-  });
+
 });
