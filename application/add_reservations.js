@@ -10,6 +10,7 @@ $(() => {
         })
         .done(function(data) {
             console.log(data);
+            $("#id_bl_save").val(ID);
             $("#fname1").val(data["0"]["resinfo_first_name"]);
             $("#lname1").val(data["0"]["resinfo_last_name"]);
             $("#tel1").val(data["0"]["resinfo_telno"]);
@@ -27,7 +28,7 @@ function showRoom() {
         })
         .done(function(data) {
             // console.log(data);
-            var selectionObject = document.getElementById("select");
+
             for (var i = 0; i < data.length; i++) {
                 var option = document.createElement("OPTION"),
                     txt = document.createTextNode(data[i]["room_name"]);
