@@ -109,7 +109,7 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
 $app->get('/editguest/{id}', function (Request $request, Response $response, array $args) {
     $bl_id = $args['id'];
     $sql = "SELECT * from guest_info g
-    join agency ac
+    join book_log bl
     on  g.ginfo_id = bl.bl_ginfo
     -- join rooms r
     -- on bl.bl_ginfo = r.room_id
