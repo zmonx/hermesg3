@@ -1,6 +1,7 @@
 $(() => {
     show_info();
     show_info_edit();
+    $("#save_edit_infoguest").click(Update_infoguest_edit);
 });
 
 function show_info() {
@@ -56,22 +57,23 @@ function show_info_edit() {
     })
 
 }
-$(() => {
+
+function Update_infoguest_edit() {
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
-    $("#id_bl_save").val(ID);
+    $("#id_bl_update").val(ID);
     $("#save_edit_infogues").click(function(e) {
         e.preventDefault();
-        $("#save_form").submit();
+        $("update_form_edit").submit();
     });
 
-    $("#save_form").on("submit", function(e) {
+    $("#update_form_edit").on("submit", function(e) {
         var parameter = $(this).serializeArray();
         console.log("1");
         console.log(parameter);
         console.log("1");
-        var url = "http://localhost/hermes/api.php/saveadd";
+        var url = "http://localhost/hermes/api.php/update_guest";
         $.post(url, parameter, function(response) {
             console.log("4");
             console.log(response);
@@ -83,4 +85,4 @@ $(() => {
         console.log("3");
         e.preventDefault();
     });
-});
+}

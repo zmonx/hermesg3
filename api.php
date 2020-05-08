@@ -79,6 +79,7 @@ $app->get('/room', function (Request $request, Response $response, array $args) 
     $sql = "SELECT * from rooms r join room_status rs on r.room_status = rs.rstatus_id WHERE rs.rstatus_eng='Avaliable'";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
+    // insert card 1
 });
 $app->post('/saveadd', function (Request $request, Response $response, array $args) {
     $params = $_POST;
@@ -106,6 +107,7 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         return $this->response->withJson(array('message' => 'false4'));
     }
 });
+// card 2 show
 $app->get('/show_info/{id}', function (Request $request, Response $response, array $args) {
     $bl_id = $args['id'];
     $sql = "SELECT * FROM reservation_info rs join book_log bl
@@ -119,8 +121,10 @@ $app->get('/show_info/{id}', function (Request $request, Response $response, arr
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
+// card 2 update
 $app->post('/update_guest', function (Request $request, Response $response, array $args) {
     $params = $_POST;
+    $bl_id = $params['id_bl_update'];
     $ginfo_first_name = $params['fname_edit_infoguest'];
     $ginfo_last_name = $params['lname_edit_infoguest'];
     $ginfo_passport_id = $params['passport_edit_infoguest'];
@@ -132,16 +136,23 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
     $room_price = $params['room_price_edit_infoguest'];
     $ginfo_mail_addr = $params['padd_edit_infoguest'];
     $ginfo_comment = $params['badd_edit_infoguest'];
-    $bl_id = $params['incbreakfast_edit_infoguest'];
-    $bl_id = $params['breakfast_edit_infoguest'];
-    $room_id = $params['select'];
-
+    $bl_incbreakfast = $params['incbreakfast_edit_infoguest'];
+    $bl_breakfast = $params['breakfast_edit_infoguest'];
     try {
-        $sql = "";
-        $this->db->query($sql);
+        $sql = "SELECT g.ginfo_id from guest_info g 
+        join book_log bl
+        on  g.ginfo_id = bl.bl_ginfo
+        WHERE bl_id = $bl_id";
+        $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $ginfo_id = ($sth[0]['ginfo_id']);
+
+        $sql1 = "UPDATE guest_info 
+        set ginfo_first_name =$ginfo_first_name, ginfo_last_name =$ginfo_last_name, ginfo_passport_id =$ginfo_passport_id, ginfo_birthday =$ginfo_birthday, ginfo_sex = $ginfo_sex, ginfo_nation = $ginfo_nation, ginfo_email = $ginfo_email, ginfo_telno = $ginfo_telno, ginfo_mail_addr =$ginfo_mail_addr, ginfo_comment = $ginfo_comment,ginfo_tax_id='115522', ginfo_name_bill='test' 
+        where ginfo_id = $ginfo_id ";
+        $this->db->query($sql1);
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
-        return $this->response->withJson(array('message' => 'false4'));
+        return $this->response->withJson(array('message' => 'false'));
     }
 });
 $app->run();
