@@ -47,8 +47,6 @@ function show_info_edit() {
         $("#nation_edit_infoguest").val(data["0"]["ginfo_nation"]);
         $("#email_edit_infoguest").val(data["0"]["ginfo_email"]);
         $("#sex_edit_infoguest").val(data["0"]["ginfo_sex"]);
-        $("#inbreakfast_edit_infoguest").val(data["0"]["bl_incbreakfast"]);
-        $("#breakfast_edit_infoguest").val(data["0"]["bl_breakfast"]);
         $("#room_price_edit_infoguest").val(data["0"]["bl_price"]);
         $("#padd_edit_infoguest").val(data["0"]["ginfo_mail_addr"]);
         $("#badd_edit_infoguest").val(data["0"]["ginfo_comment"]);
