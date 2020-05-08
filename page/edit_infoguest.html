@@ -158,7 +158,8 @@
                 <!-- End Navbar -->
                 <!-- Start edit_infoguest -->
                 <div class="content">
-
+                    
+                    <form action="save_form" method="post">
                     <div class="card">
                         <div class="">
                             <div class="fixposition">
@@ -191,30 +192,30 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label for="">First Name : </label>
-                                        <input type="text" class="form-control" id="fname_edit_infoguest" />
+                                        <input type="text" class="form-control" id="fname_edit_infoguest" name="fname_edit_infoguest" />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Last Name : </label>
-                                        <input type="text" class="form-control" id="lname_edit_infoguest" />
+                                        <input type="text" class="form-control" id="lname_edit_infoguest" name="lname_edit_infoguest" />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Phone : </label>
-                                        <input type="text" class="form-control" id="phone_edit_infoguest" />
+                                        <input type="text" class="form-control" id="phone_edit_infoguest" name="phone_edit_infoguest" />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Passport ID : </label>
-                                        <input type="text" class="form-control" id="passport_edit_infoguest" />
+                                        <input type="text" class="form-control" id="passport_edit_infoguest" name="passport_edit_infoguest" />
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label for="">Birthday (YYYY-MM-DD) : </label>
-                                        <input type="text" class="form-control" id="bd_edit_infoguest" />
+                                        <input type="text" class="form-control" id="bd_edit_infoguest" name="bd_edit_infoguest" />
                                     </div>
                                     <div class="col-md-3">
                                         <label class="mdb-main-label">Nationality : </label>
-                                        <select class="form-control mdb-select md-form" editable="true" searchable="Search and add here" id="nation_edit_infoguest">
+                                        <select class="form-control mdb-select md-form" editable="true" searchable="Search and add here" id="nation_edit_infoguest" name="nation_edit_infoguest" >
                                             <option value="N/A">N/A</option>
                                             <option value="thai">thai</option>
                                         </select>
@@ -222,11 +223,11 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">E-mail : </label>
-                                        <input type="text" class="form-control" id="email_edit_infoguest" />
+                                        <input type="text" class="form-control" id="email_edit_infoguest" name="email_edit_infoguest"  />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Sex : </label>
-                                        <select class="form-control" id="sex_edit_infoguest">
+                                        <select class="form-control" id="sex_edit_infoguest" name="sex_edit_infoguest" >
                                             <option value="0">N/A</option>
                                             <option value="1">Male</option>
                                             <option value="2">Female</option>
@@ -238,14 +239,14 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label for="">Including Breakfast : </label>
-                                        <select class="form-control" id="incbreakfast_edit_infoguest">
+                                        <select class="form-control" id="incbreakfast_edit_infoguest" name="incbreakfast_edit_infoguest" >
                                             <option value="0">No</option>
                                             <option value="1">Yes</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Breakfast : </label>
-                                        <select class="form-control" id="breakfast_edit_infoguest">
+                                        <select class="form-control" id="breakfast_edit_infoguest" name="breakfast_edit_infoguest" >
                                             <option value=" N/A  ">N/A</option>
                                             <option value="1">set1</option>
                                             <option value="2">set2</option>
@@ -253,27 +254,28 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Room Price : </label>
-                                        <input type="text" class="form-control" id="room_price_edit_infoguest" />
+                                        <input type="text" class="form-control" id="room_price_edit_infoguest" name="room_price_edit_infoguest" />
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label for="">Post Address : </label>
-                                        <input type="text" class="form-control" id="padd_edit_infoguest" />
+                                        <input type="text" class="form-control" id="padd_edit_infoguest" name="padd_edit_infoguest"  />
                                     </div>
                                     <div class="col-md-4">
                                         <label for="">Billing Address : </label>
-                                        <input type="text" class="form-control" id="badd_edit_infoguest" />
+                                        <input type="text" class="form-control" id="badd_edit_infoguest" name="badd_edit_infoguest" />
                                     </div>
                                     <div class="col-md-4">
                                         <label for="">Notes : </label>
-                                        <input type="text" class="form-control" id="note_edit_infoguest" /><br>
+                                        <input type="text" class="form-control" id="note_edit_infoguest" name="note_edit_infoguest" /><br>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
             <!-- end edit_infoguest -->
