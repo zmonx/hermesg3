@@ -106,20 +106,16 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         return $this->response->withJson(array('message' => 'false4'));
     }
 });
-$app->get('/editguest/{id}', function (Request $request, Response $response, array $args) {
+$app->get('/show_info/{id}', function (Request $request, Response $response, array $args) {
     $bl_id = $args['id'];
-    $sql = "SELECT * from guest_info g
-    join book_log bl
-    on  g.ginfo_id = bl.bl_ginfo
-    -- join rooms r
-    -- on bl.bl_ginfo = r.room_id
-    -- join room_type rt
-    -- on r.room_id = rt.rtype_id
-    -- join room_status rs
-    -- on rt.rtype_id = rs.rstatus_id
-    -- join room_view rv
-    -- on rs.rstatus_id = rv.rview_id
-    WHERE bl.bl_id = $bl_id";
+    $sql = "SELECT * FROM reservation_info rs join book_log bl
+    on rs.resinfo_id = bl.bl_reservation join guest_info g
+    on bl.bl_ginfo = g.ginfo_id join rooms r
+    on bl.bl_room = r.room_id join room_type rt
+    on r.room_type = rt.rtype_id join room_view rv
+    on r.room_view = rv.rview_id join building bd
+    on r.room_building = bd.building_id
+    where bl.bl_id = $bl_id ";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
