@@ -109,7 +109,7 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
 $app->get('/editguest/{id}', function (Request $request, Response $response, array $args) {
     $bl_id = $args['id'];
     $sql = "SELECT * from guest_info g
-    join book_log bl
+    join agency ac
     on  g.ginfo_id = bl.bl_ginfo
     -- join rooms r
     -- on bl.bl_ginfo = r.room_id
@@ -121,6 +121,7 @@ $app->get('/editguest/{id}', function (Request $request, Response $response, arr
     -- on rs.rstatus_id = rv.rview_id
     WHERE bl.bl_id = $bl_id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    return $this->response->withJson($sth);
+    return $this ->response->withJson($sth);
+
 });
 $app->run();
