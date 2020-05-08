@@ -26,7 +26,7 @@ function showRoom() {
             format: "json",
         })
         .done(function(data) {
-            console.log(data);
+            // console.log(data);
             var selectionObject = document.getElementById("select");
             for (var i = 0; i < data.length; i++) {
                 var option = document.createElement("OPTION"),

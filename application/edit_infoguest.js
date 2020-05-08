@@ -29,8 +29,8 @@ $(() => {
         })
         .fail(function(jqxhr, testStatus, error) {});
 
-    $(document).ready(function() {
-        // Material Select
-        $(".mdb-select").materialSelect({});
-    });
+    // $(document).ready(function() {
+    //     // Material Select
+    //     $(".mdb-select").materialSelect({});
+    // });
 });
