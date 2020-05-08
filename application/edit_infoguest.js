@@ -56,3 +56,31 @@ function show_info_edit() {
     })
 
 }
+$(() => {
+    var query = window.location.search.substring(1);
+    var vars = query.split("=");
+    var ID = vars[1];
+    $("#id_bl_save").val(ID);
+    $("#save_edit_infogues").click(function(e) {
+        e.preventDefault();
+        $("#save_form").submit();
+    });
+
+    $("#save_form").on("submit", function(e) {
+        var parameter = $(this).serializeArray();
+        console.log("1");
+        console.log(parameter);
+        console.log("1");
+        var url = "http://localhost/hermes/api.php/saveadd";
+        $.post(url, parameter, function(response) {
+            console.log("4");
+            console.log(response);
+            console.log("4");
+            if (response["message"] == "success") {
+                $("#modal_alert").modal("show");
+            }
+        });
+        console.log("3");
+        e.preventDefault();
+    });
+});
