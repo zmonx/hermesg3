@@ -107,12 +107,11 @@ $app->post('/saveadd/{resinfo_id}/{room_id}', function (Request $request, Respon
     $this->db->query($sql4);
 });
 $app->get('/editguest/{id}', function (Request $request, Response $response, array $args) {
-    $id = $args['id'];
+    $bl_id = $args['id'];
     $sql = "SELECT *from guest_info g
     join book_log bl
     on  g.ginfo_id = bl.bl_ginfo
-    WHERE g.ginfo_id = $id
-    group by g.ginfo_id";
+    WHERE bl.bl_id = $bl_id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
