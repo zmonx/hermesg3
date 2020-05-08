@@ -81,9 +81,6 @@ $app->get('/room', function (Request $request, Response $response, array $args) 
     return $this->response->withJson($sth);
 });
 $app->post('/saveadd', function (Request $request, Response $response, array $args) {
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
     $params = $_POST;
     $bl_id = $params['id_bl_save'];
     $room_id = $params['select'];
@@ -124,7 +121,6 @@ $app->get('/editguest/{id}', function (Request $request, Response $response, arr
     -- on rs.rstatus_id = rv.rview_id
     WHERE bl.bl_id = $bl_id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    return $this ->response->withJson($sth);
-
+    return $this->response->withJson($sth);
 });
 $app->run();
