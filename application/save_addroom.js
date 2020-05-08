@@ -20,7 +20,6 @@ $(() => {
             console.log("4");
             if (response["message"] == "success") {
                 $("#modal_alert").modal("show");
-                setTimeout(reload, 800);
             }
         });
         console.log("3");
@@ -28,6 +27,9 @@ $(() => {
     });
 });
 
+function reload() {
+    location.reload();
+}
 // function save() {
 //     var query = window.location.search.substring(1);
 //     var vars = query.split("=");

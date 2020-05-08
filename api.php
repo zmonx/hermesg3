@@ -81,29 +81,32 @@ $app->get('/room', function (Request $request, Response $response, array $args) 
     return $this->response->withJson($sth);
 });
 $app->post('/saveadd', function (Request $request, Response $response, array $args) {
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
     $params = $_POST;
-    $bl_id = $params['bl_id'];
-    $room_id = $params['room_id'];
+    $bl_id = $params['id_bl_save'];
+    $room_id = $params['select'];
     try {
         $sql = "SELECT *from guest_info g 
         join book_log bl
         on  g.ginfo_id = bl.bl_ginfo
         WHERE bl_id = $bl_id";
         $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        // $bl_ginfo = ($sth[0]['bl_ginfo']);
-        // $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room)
-        // SELECT bl_reservation, bl_ginfo, bl_checkin, '$room_id'
-        // FROM book_log WHERE bl_id = $bl_id";
-        // $this->db->query($sql1);
-        // $sql2 = "INSERT INTO guest_info ( ginfo_first_name, ginfo_last_name,ginfo_tax_id, ginfo_name_bill)
-        // SELECT ginfo_first_name, ginfo_last_name, ginfo_tax_id, ginfo_name_bill
-        // FROM guest_info WHERE ginfo_id = $bl_ginfo";
-        // $this->db->query($sql2);
-        // $sql3 = "UPDATE rooms set room_status ='4'where room_id = '$room_id'";
-        // $this->db->query($sql3);
+        $bl_ginfo = ($sth[0]['bl_ginfo']);
+        $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room)
+        SELECT bl_reservation, bl_ginfo, bl_checkin, '$room_id'
+        FROM book_log WHERE bl_id = $bl_id";
+        $this->db->query($sql1);
+        $sql2 = "INSERT INTO guest_info ( ginfo_first_name, ginfo_last_name,ginfo_tax_id, ginfo_name_bill)
+        SELECT ginfo_first_name, ginfo_last_name, ginfo_tax_id, ginfo_name_bill
+        FROM guest_info WHERE ginfo_id = $bl_ginfo";
+        $this->db->query($sql2);
+        $sql3 = "UPDATE rooms set room_status ='4'where room_id = '$room_id'";
+        $this->db->query($sql3);
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
-        return $this->response->withJson(array('message' => 'false'));
+        return $this->response->withJson(array('message' => 'false4'));
     }
 });
 $app->get('/editguest/{id}', function (Request $request, Response $response, array $args) {
