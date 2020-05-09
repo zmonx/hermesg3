@@ -142,13 +142,11 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
         $sql = "SELECT g.ginfo_id from guest_info g 
         join book_log bl
         on  g.ginfo_id = bl.bl_ginfo
-        WHERE bl_id = $bl_id";
+        WHERE bl.bl_id = $bl_id ";
         $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         $ginfo_id = ($sth[0]['ginfo_id']);
 
-        $sql1 = "UPDATE guest_info 
-        set ginfo_first_name =$ginfo_first_name, ginfo_last_name =$ginfo_last_name, ginfo_passport_id =$ginfo_passport_id, ginfo_birthday =$ginfo_birthday, ginfo_sex = $ginfo_sex, ginfo_nation = $ginfo_nation, ginfo_email = $ginfo_email, ginfo_telno = $ginfo_telno, ginfo_mail_addr =$ginfo_mail_addr, ginfo_comment = $ginfo_comment,ginfo_tax_id='115522', ginfo_name_bill='test' 
-        where ginfo_id = $ginfo_id ";
+        $sql1 = "UPDATE guest_info set ginfo_first_name ='$ginfo_first_name', ginfo_last_name ='$ginfo_last_name', ginfo_passport_id ='$ginfo_passport_id', ginfo_birthday ='$ginfo_birthday', ginfo_sex = $ginfo_sex, ginfo_nation = '$ginfo_nation', ginfo_email = '$ginfo_email', ginfo_telno = $ginfo_telno, ginfo_mail_addr ='$ginfo_mail_addr', ginfo_comment = '$ginfo_comment',ginfo_tax_id='115522', ginfo_name_bill='test' where ginfo_id = $ginfo_id";
         $this->db->query($sql1);
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
