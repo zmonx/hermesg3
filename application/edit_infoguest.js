@@ -70,17 +70,19 @@ function Update_infoguest_edit() {
 
     $("#update_form_edit").on("submit", function(e) {
         var parameter = $(this).serializeArray();
-        console.log("1");
-        console.log(parameter);
-        console.log("1");
-        var url = "http://localhost/hermes/api.php/update_guest";
-        $.post(url, parameter, function(response) {
-            console.log("4");
-            console.log(response);
-            console.log("4");
-            if (response["message"] == "success") {
-                $("#modal_alert").modal("show");
-            }
+        $("#btn_yes_ubdate").click(function(e) {
+            console.log("1");
+            console.log(parameter);
+            console.log("1");
+            var url = "http://localhost/hermes/api.php/update_guest";
+            $.post(url, parameter, function(response) {
+                console.log("4");
+                console.log(response);
+                console.log("4");
+                if (response["message"] == "success") {
+                    $("#modal_alert").modal("show");
+                }
+            });
         });
         console.log("3");
         e.preventDefault();
