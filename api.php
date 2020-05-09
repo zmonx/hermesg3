@@ -129,7 +129,7 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
     $ginfo_last_name = $params['lname_edit_infoguest'];
     $ginfo_passport_id = $params['passport_edit_infoguest'];
     $ginfo_telno = $params['phone_edit_infoguest'];
-    $ginfo_birthday = $params['bd_edit_infoguestay'];
+    $ginfo_birthday = $params['bd_edit_infoguest'];
     $ginfo_nation = $params['nation_edit_infoguest'];
     $ginfo_email = $params['email_edit_infoguest'];
     $ginfo_sex = $params['sex_edit_infoguest;'];
@@ -150,6 +150,8 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
         ginfo_birthday ='$ginfo_birthday', ginfo_sex = '$ginfo_sex' , ginfo_nation = '$ginfo_nation', ginfo_email = '$ginfo_email', ginfo_telno = '$ginfo_telno', 
         ginfo_mail_addr ='$ginfo_mail_addr', ginfo_comment = '$ginfo_comment',ginfo_tax_id='115522', ginfo_name_bill='test' where ginfo_id = $ginfo_id";
         $this->db->query($sql1);
+        
+
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
         return $this->response->withJson(array('message' => 'false'));
