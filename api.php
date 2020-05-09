@@ -132,7 +132,7 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
     $ginfo_birthday = $params['bd_edit_infoguest'];
     $ginfo_nation = $params['nation_edit_infoguest'];
     $ginfo_email = $params['email_edit_infoguest'];
-    $ginfo_sex = $params['sex_edit_infoguest;'];
+    $ginfo_sex = $params['sex_edit_infoguest'];
     $room_price = $params['room_price_edit_infoguest'];
     $ginfo_mail_addr = $params['padd_edit_infoguest'];
     $ginfo_comment = $params['badd_edit_infoguest'];
@@ -148,8 +148,9 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
 
         $sql1 = "UPDATE guest_info set ginfo_first_name ='$ginfo_first_name', ginfo_last_name ='$ginfo_last_name', ginfo_passport_id ='$ginfo_passport_id', 
         ginfo_birthday ='$ginfo_birthday' , ginfo_nation = '$ginfo_nation', ginfo_email = '$ginfo_email', ginfo_telno = '$ginfo_telno', 
-        ginfo_mail_addr ='$ginfo_mail_addr', ginfo_comment = '$ginfo_comment',ginfo_tax_id='115522', ginfo_name_bill='test', ginfo_sex ='$ginfo_sex' where ginfo_id = $ginfo_id";        $this->db->query($sql1);
-        
+        ginfo_mail_addr ='$ginfo_mail_addr', ginfo_comment = '$ginfo_comment',ginfo_tax_id='115522', ginfo_name_bill='test', ginfo_sex ='$ginfo_sex' where ginfo_id = $ginfo_id";
+        $this->db->query($sql1);
+
 
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
