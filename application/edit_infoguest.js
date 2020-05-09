@@ -63,7 +63,7 @@ function Update_infoguest_edit() {
     var vars = query.split("=");
     var ID = vars[1];
     $("#id_bl_update").val(ID);
-    $("#save_edit_infogues").click(function(e) {
+    $("#save_edit_infoguest").click(function(e) {
         e.preventDefault();
         $("update_form_edit").submit();
     });
