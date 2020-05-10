@@ -80,20 +80,37 @@ $app->get('/room/{id}', function (Request $request, Response $response, array $a
     $sql = "SELECT *from guest_info g 
         join book_log bl
         on  g.ginfo_id = bl.bl_ginfo
-        WHERE bl_id = $bl_id";
+        WHERE bl.bl_id = $bl_id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
     $bl_ginfo = ($sth[0]['bl_ginfo']);
     $ginfo_in = ($sth[0]['ginfo_in']);
-    $ginfo_checkout =($sth[0]['ginfo_checkout']);
-        
+    $ginfo_out =($sth[0]['ginfo_out']);
+    // echo "<pre>";
+    // print_r($ginfo_in);
+    // print_r($ginfo_out);
+    // echo "</pre>";
+    // exit();
     $sql1 ="SELECT r.room_name from book_log bl join guest_info g
         on bl.bl_ginfo = g.ginfo_id
         join rooms r
         on bl.bl_room = r.room_id
-        where g.ginfo_id = $bl_ginfo AND bl.bl_checkin between '$ginfo_in' and '$ginfo_checkout'
+        where bl.bl_ginfo = $bl_ginfo AND bl.bl_checkin between '$ginfo_in' and '$ginfo_out'
         group by bl.bl_room";
-    $sth1 = $this->db->query($sql1)->fetch(PDO::FETCH_ASSOC);  
-    return $this->response->withJson($sth1);
+    $sth1 = $this->db->query($sql1)->fetchAll(PDO::FETCH_ASSOC);
+    // $notroom = $sth1['room_name'];
+    //  echo "<pre>";
+    // print_r($sth1);
+    // echo "</pre>";
+    // exit();
+    $sql2 = "SELECT room_name ,room_id from rooms where room_name != ''";
+    if(count($sth1)>0){
+        foreach($sth1 as $key){
+            $sql2 .= " And room_name != " .$key['room_name'];
+        }
+    }
+    $sth2 = $this->db->query($sql2)->fetchAll(PDO::FETCH_ASSOC);
+    return $this->response->withJson($sth2);
 });
 $app->post('/saveadd', function (Request $request, Response $response, array $args) {
     $params =$_POST;
