@@ -75,14 +75,28 @@ $app->get('/addroom/{id}', function (Request $request, Response $response, array
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
-$app->get('/room', function (Request $request, Response $response, array $args) {
-    $sql = "SELECT * from rooms r join room_status rs on r.room_status = rs.rstatus_id WHERE rs.rstatus_eng='Avaliable'";
+$app->get('/room/{id}', function (Request $request, Response $response, array $args) {
+    $bl_id = $args['id'];
+    $sql = "SELECT *from guest_info g 
+        join book_log bl
+        on  g.ginfo_id = bl.bl_ginfo
+        WHERE bl_id = $bl_id";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    return $this->response->withJson($sth);
-    // insert card 1
+    $bl_ginfo = ($sth[0]['bl_ginfo']);
+    $ginfo_in = ($sth[0]['ginfo_in']);
+    $ginfo_checkout =($sth[0]['ginfo_checkout']);
+        
+    $sql1 ="SELECT r.room_name from book_log bl join guest_info g
+        on bl.bl_ginfo = g.ginfo_id
+        join rooms r
+        on bl.bl_room = r.room_id
+        where g.ginfo_id = $bl_ginfo AND bl.bl_checkin between '$ginfo_in' and '$ginfo_checkout'
+        group by bl.bl_room";
+    $sth1 = $this->db->query($sql1)->fetch(PDO::FETCH_ASSOC);  
+    return $this->response->withJson($sth1);
 });
 $app->post('/saveadd', function (Request $request, Response $response, array $args) {
-    $params = $_POST;
+    $params =$_POST;
     $bl_id = $params['id_bl_save'];
     $room_id = $params['select'];
     try {
@@ -92,16 +106,16 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         WHERE bl_id = $bl_id";
         $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         $bl_ginfo = ($sth[0]['bl_ginfo']);
-        $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room)
-        SELECT bl_reservation, bl_ginfo, bl_checkin, '$room_id'
+        $ginfo_in = ($sth[0]['ginfo_in']);
+        // $ginfo_checkout = ($sth[0]['ginfo_checkout']);
+        $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin,bl_timestamp, bl_room,bl_status)
+        SELECT bl_reservation, bl_ginfo,'$ginfo_in','', '$room_id','0'
         FROM book_log WHERE bl_id = $bl_id";
         $this->db->query($sql1);
         $sql2 = "INSERT INTO guest_info ( ginfo_first_name, ginfo_last_name,ginfo_tax_id, ginfo_name_bill)
         SELECT ginfo_first_name, ginfo_last_name, ginfo_tax_id, ginfo_name_bill
         FROM guest_info WHERE ginfo_id = $bl_ginfo";
         $this->db->query($sql2);
-        $sql3 = "UPDATE rooms set room_status ='4'where room_id = '$room_id'";
-        $this->db->query($sql3);
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
         return $this->response->withJson(array('message' => 'false4'));
@@ -157,4 +171,5 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
         return $this->response->withJson(array('message' => 'false'));
     }
 });
+// card 3 
 $app->run();

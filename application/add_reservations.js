@@ -21,14 +21,16 @@ $(() => {
 });
 
 function showRoom() {
+    var query = window.location.search.substring(1);
+    var vars = query.split("=");
+    var ID = vars[1];
     //    alert('sdasdsa');
-    var urlAPI = "http://localhost/hermes/api.php/room";
+    var urlAPI = "http://localhost/hermes/api.php/room/"+ID;
     $.getJSON(urlAPI, {
             format: "json",
         })
         .done(function(data) {
-            // console.log(data);
-
+            console.log(data);
             for (var i = 0; i < data.length; i++) {
                 var option = document.createElement("OPTION"),
                     txt = document.createTextNode(data[i]["room_name"]);

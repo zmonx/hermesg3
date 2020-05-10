@@ -70,7 +70,7 @@ function Update_infoguest_edit() {
 
     $("#update_form_edit").on("submit", function(e) {
         var parameter = $(this).serializeArray();
-        $("#btn_yes_ubdate").click(function(e) {
+        $("#btn_yes_update").click(function(e) {
             console.log("1");
             console.log(parameter);
             console.log("1");
