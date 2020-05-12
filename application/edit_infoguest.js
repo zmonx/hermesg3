@@ -8,7 +8,7 @@ function show_info() {
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
-    var urlAPI = base_url("http://localhost/hermes/api.php/show_info/" + ID);
+    var urlAPI = base_url("api.php/show_info/" + ID);
 
     $.getJSON(urlAPI, {
             format: "json",
@@ -32,7 +32,7 @@ function show_info_edit() {
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var ID = vars[1];
-    var urlAPI = base_url("http://localhost/hermes/api.php/show_info/" + ID);
+    var urlAPI = base_url("api.php/show_info/" + ID);
 
     $.getJSON(urlAPI, {
         format: "json",
@@ -74,7 +74,7 @@ function Update_infoguest_edit() {
             console.log("1");
             console.log(parameter);
             console.log("1");
-            var url = base_url("http://localhost/hermes/api.php/update_guest");
+            var url = base_url("api.php/update_guest");
             $.post(url, parameter, function(response) {
                 console.log("4");
                 console.log(response);

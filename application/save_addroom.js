@@ -13,7 +13,7 @@ $(() => {
         console.log("1");
         console.log(parameter);
         console.log("1");
-        var url = base_url("http://localhost/hermes/api.php/saveadd");
+        var url = base_url("api.php/saveadd");
         $.post(url, parameter, function(response) {
             console.log("4");
             console.log(response);
