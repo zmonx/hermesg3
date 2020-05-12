@@ -1,3 +1,4 @@
+<?php include "../function.php" ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -18,7 +19,8 @@
     <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet" />
     <link href="<?php echo base_url('assets/css/light-bootstrap-dashboard.css?v=2.0.0')?> " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?php echo base_url('assets/css/demo.css" rel="stylesheet')?>" />
+    <link href="<?php echo base_url('assets/css/demo.css')?>" />
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>" />
     <script src="<?php echo base_url('assets/js/jquery-3.5.0.min.js')?>"></script>
 </head>
 
@@ -185,11 +187,12 @@
                                 </div>
 
                             </div>
-                            <table class="table table-bordered">
+                            <form action="" method="GET"></form>
+                            <table class="table table-bordered" id="data_table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">-</th>
-                                        <th scope="col"><center>Guest name</center></th>
+                                        <th scope="col"></th>
+                                        <th scope="col"><center> Guest name</center></th>
                                         <th scope="col"><center>Room</center></th>
                                         <th scope="col"><center>Conrect Name</center></th>
                                         <th scope="col"><center>Phone</center></th>
@@ -197,18 +200,9 @@
                                         <th scope="col"><center>Book Detes</center></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <button type="submit" id="Agency" class="btn btn-primary"> + info </button>
-                                        </th>
-                                        <td>Chanankorn jandaeng</td>
-                                        <td>R101</td>
-                                        <td>Walk in</td>
-                                        <td>087-887519</td>
-                                        <td>Chanankorn</td>
-                                        <td>2018-09-09 07:31:30</td>
-                                    </tr>
+                                <tbody id="display">
+                                    
+                                        <!-- <th><button type="submit" id="Agency" class="btn btn-primary"> + info </button></th> -->
                                 </tbody>
                             </table>
                             <div>
@@ -238,6 +232,8 @@
         }
     </style>
 
+    <script src="<?php echo base_url('application/info_checkin.js')?>"></script>
+
     <!--   Core JS Files   -->
     <script src="<?php echo base_url('assets/js/core/jquery.3.2.1.min.js')?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/js/core/popper.min.js')?>" type="text/javascript"></script>
@@ -246,6 +242,8 @@
     <script src="<?php echo base_url('assets/js/plugins/bootstrap-switch.js')?>"></script>
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!--    Data table     -->
+    <script src="<?php echo base_url('assets/js/jquery.dataTables.min.css')?>"></script>
     <!--  Chartist Plugin  -->
     <script src="<?php echo base_url('assets/js/plugins/chartist.min.js')?>"></script>
     <!--  Notifications Plugin    -->
