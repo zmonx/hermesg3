@@ -95,7 +95,7 @@ $app->get('/room/{id}', function (Request $request, Response $response, array $a
         on bl.bl_ginfo = g.ginfo_id
         join rooms r
         on bl.bl_room = r.room_id
-        where bl.bl_ginfo = $bl_ginfo AND bl.bl_checkin between '$ginfo_in' and '$ginfo_out'
+        where   bl.bl_ginfo = $bl_ginfo AND bl.bl_checkin between '$ginfo_in' and '$ginfo_out'
         group by bl.bl_room";
     $sth1 = $this->db->query($sql1)->fetchAll(PDO::FETCH_ASSOC);
     // $notroom = $sth1['room_name'];
@@ -126,14 +126,10 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         $bl_ginfo = ($sth[0]['bl_ginfo']);
         $ginfo_in = ($sth[0]['ginfo_in']);
         // $ginfo_checkout = ($sth[0]['ginfo_checkout']);
-        $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin,bl_timestamp, bl_room,bl_status)
-        SELECT bl_reservation, bl_ginfo,'$ginfo_in','', '$room_id','0'
+        $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room,bl_status)
+        SELECT bl_reservation, bl_ginfo,'$ginfo_in', '$room_id','0'
         FROM book_log WHERE bl_id = $bl_id";
         $this->db->query($sql1);
-        $sql2 = "INSERT INTO guest_info ( ginfo_first_name, ginfo_last_name,ginfo_tax_id, ginfo_name_bill)
-        SELECT ginfo_first_name, ginfo_last_name, ginfo_tax_id, ginfo_name_bill
-        FROM guest_info WHERE ginfo_id = $bl_ginfo";
-        $this->db->query($sql2);
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
         return $this->response->withJson(array('message' => 'false4'));

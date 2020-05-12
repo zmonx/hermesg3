@@ -68,3 +68,11 @@ function reload() {
 //     //     },
 //     // });
 // }
+function base_url(path){
+    var host = window.location.origin;
+    // "http://localhost"
+    var pathArray = window.location.pathname.split( '/' );
+    // split path
+    return host+"/"+pathArray[1]+"/"+path;
+    // return http://localhost/hermes/+path
+  }
