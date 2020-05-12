@@ -116,6 +116,7 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
     $params =$_POST;
     $bl_id = $params['id_bl_save'];
     $room_id = $params['select'];
+    
     try {
         $sql = "SELECT *from guest_info g 
         join book_log bl

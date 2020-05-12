@@ -3,7 +3,7 @@ $(() => {
     var vars = query.split("=");
     var ID = vars[1];
     // alert(ID);
-    var urlAPI = "http://localhost/hermes/api.php/addroom/" + ID;
+    var urlAPI = base_url("api.php/addroom/" + ID);
 
     $.getJSON(urlAPI, {
             format: "json",
@@ -25,7 +25,7 @@ function showRoom() {
     var vars = query.split("=");
     var ID = vars[1];
     //    alert('sdasdsa');
-    var urlAPI = "http://localhost/hermes/api.php/room/"+ID;
+    var urlAPI = base_url("api.php/room/"+ID);
     $.getJSON(urlAPI, {
             format: "json",
         })
@@ -41,3 +41,11 @@ function showRoom() {
         })
         .fail(function(jqxhr, textStatus, error) {});
 }
+function base_url(path){
+    var host = window.location.origin;
+    // "http://localhost"
+    var pathArray = window.location.pathname.split( '/' );
+    // split path
+    return host+"/"+pathArray[1]+"/"+path;
+    // return http://localhost/hermes/+path
+  }
