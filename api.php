@@ -190,5 +190,17 @@ $app->post('/update_guest', function (Request $request, Response $response, arra
         return $this->response->withJson(array('message' => 'false'));
     }
 });
-// card 3 
+// card 3 (15)
+$app->get('/show_gesinfo_checkout', function (Request $request, Response $response, array $args) {
+    $sql = "SELECT * FROM reservation_info rs join book_log bl
+    on rs.resinfo_id = bl.bl_reservation join guest_info g
+    on bl.bl_ginfo = g.ginfo_id join rooms r
+    on bl.bl_room = r.room_id join room_type rt
+    on r.room_type = rt.rtype_id join room_view rv
+    on r.room_view = rv.rview_id join building bd
+    on r.room_building = bd.building_id join  agency a
+    on rs.resinfo_agency = a.agency_id";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $this->response->withJson($sth);
+});
 $app->run();

@@ -6,7 +6,7 @@ function display_info_checkin() {
   var query = window.location.search.substring(1);
   var vars = query.split("=");
   var ID = vars[1];
-  var urlAPI = base_url("api.php/show_info/" + ID);
+  var urlAPI = base_url("api.php/show_gesinfo_checkout");
   $.getJSON(urlAPI).done(function (data) {
     //console.log(JSON.stringify(data));
 

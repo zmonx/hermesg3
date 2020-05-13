@@ -88,6 +88,7 @@ function Update_infoguest_edit() {
         e.preventDefault();
     });
 }
+
 function base_url(path){
     var host = window.location.origin;
     // "http://localhost"
