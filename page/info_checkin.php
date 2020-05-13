@@ -192,12 +192,12 @@
                                 <thead>
                                     <tr>
                                         <th scope="col"></th>
-                                        <th scope="col"><center> Guest name</center></th>
-                                        <th scope="col"><center>Room</center></th>
-                                        <th scope="col"><center>Conrect Name</center></th>
-                                        <th scope="col"><center>Phone</center></th>
-                                        <th scope="col"><center>Agency</center></th>
-                                        <th scope="col"><center>Book Detes</center></th>
+                                        <th scope="col"> Guest name</th>
+                                        <th scope="col">Room</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Checkin</th>
+                                        <th scope="col">Checkout</th>
+                                        <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody id="display">
