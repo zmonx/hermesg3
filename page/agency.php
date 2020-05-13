@@ -162,7 +162,7 @@
                                     <h3 class="mt-4 fixposition">AGENCY</h3>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <button type="submit" id="Agency" class="btn btn-primary"> Add Agency</button>
+                                    <button type="submit" id="add_agency" class="btn btn-primary btn-round">Add Agency</button>
                                 </div>
                             </div>
                             <HR>
@@ -203,7 +203,7 @@
                                 <tbody>
                                     <tr>
                                         <th>
-                                            <button type="submit" id="Agency" class="btn btn-primary">+ info</button>
+                                            <button type="submit" id="info" class="btn btn-primary btn-round btn-sm">+ info</button>
                                         </th>
                                         <td>Book</td>
                                         <td>booking.com</td>
