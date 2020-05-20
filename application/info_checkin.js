@@ -14,7 +14,7 @@ function display_info_checkin() {
     $.each(data, function (k, item) {
       console.log(item);
       line += "<tr>";
-      line += "<td></td>";
+      line += "<td><button type= 'button' class='btn btn-info btn-round'>Info</button></td>";
       line += "<td >" + item.ginfo_first_name + "</td>";
       line += "<td >" + item.room_name + "</td>";
       line += "<td >" + item.ginfo_telno + "</td>";
