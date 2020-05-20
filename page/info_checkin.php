@@ -182,13 +182,13 @@
                                 <div class="form-group row">
                                     <label for="colFormLabel" class="col-sm-3 mt-2">search</label>
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="search" placeholder="search">
+                                        <input type="search" class="form-control" id="search_info_checkin" placeholder="search">
                                     </div>
                                 </div>
 
                             </div>
                             <form action="" method="GET"></form>
-                            <table class="table table-bordered" id="data_table">
+                            <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col"></th>

@@ -130,11 +130,25 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         $bl_ginfo = ($sth[0]['bl_ginfo']);
         $ginfo_in = ($sth[0]['ginfo_in']);
+        $ginfo_out = ($sth[0]['ginfo_out']);
         $resinfo_id =($sth[0]['resinfo_id']);
-        // $ginfo_checkout = ($sth[0]['ginfo_checkout']);
-        $sql1 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room,bl_status)
-        VALUE ('$resinfo_id', '$bl_ginfo','$ginfo_in', '$room_id','2') ";
-        $this->db->query($sql1);
+        // echo "<pre>";
+        // print_r($sth);
+        // echo "</pre>";
+        // exit();
+        $sql1 = "SELECT (ginfo_out - ginfo_in)+1 as day FROM guest_info where ginfo_id = $bl_ginfo;";
+        $sth1 = $this->db->query($sql1)->fetch(PDO::FETCH_ASSOC);
+        // echo "<pre>";
+        // print_r($sth1);
+        // print_r($sth1['day']);
+        // echo "</pre>";
+        // exit();
+        for ($i=0; $i < ($sth1['day']) ; $i++) { 
+            $sql2 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room,bl_status)
+            VALUE ('$resinfo_id', '$bl_ginfo','$ginfo_in', '$room_id','2') ";
+            
+        }
+        $this->db->query($sql2);
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
         return $this->response->withJson(array('message' => 'false4'));

@@ -24,12 +24,15 @@ function display_info_checkin() {
       line += "</tr>";
     });
 
-    $(document).ready(function () {
-      $("#data_table").DataTable({
-        aaSorting: [[0, "ASC"]],
-      });
-    });
-
+    $("#display").empty();
     $("#display").append(line);
+
+    $('#data_table').DataTable({
+      "autoWidth": true,
+      "pageLength": 25
   });
+
+
+  });
+
 }
