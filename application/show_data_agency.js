@@ -23,8 +23,9 @@ $(() => {
         line += "<td >" +item.agency_price + "</td>"; //commission
         line += "</tr>";
       });
+    $("#display").empty();
 
-      $("#agency").html(line);
+      $("#agency").append(line);
 
     $('#data_table_agency').DataTable(
     //   "autoWidth": true,

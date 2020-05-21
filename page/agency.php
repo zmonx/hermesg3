@@ -174,24 +174,6 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <!-- <label class="mr-sm-2">Show</label>
-                                    <select class="custom-select mr-sm-2" id=" ">
-                                        <option selected>10</option>
-                                        <option value="1">11</option>
-                                        <option value="2">12</option>
-                                        <option value="3">13</option>
-                                    </select>
-                                    <label class="mr-sm-2">ertrios</label> -->
-                                </div>
-
-                                <div class="form-group row">
-                                    <!-- <label for="colFormLabel" class="col-sm-3 mt-2">search</label> -->
-                                    <div class="col-sm-9">
-                                        <!-- <input type="email" class="form-control" id="search" placeholder="search"> -->
-                                    </div>
-                                </div>
-
                             </div>
                             <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table_agency">
                                 <thead>
@@ -211,17 +193,6 @@
                             </table>
                             <div>
 
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
                         </div>
                     </div>
                 </div>

@@ -159,7 +159,7 @@
                 </nav>
 
                 <div class="content">
-                    <div class="card">
+                    <div class="card position-card ">
                         <div class="card-header">
                             <div class="col-md-12">
                                 <div>
@@ -169,8 +169,20 @@
                                                 <div id="local_time">&nbsp;</div>
                                                 <script language="JavaScript1.2">
                                                     function local_date(now_time) {
+                                                        var arrMonthName = new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
                                                         current_local_time = new Date();
-                                                        local_time.innerHTML = current_local_time.getDate() + "/" + (current_local_time.getMonth() + 1) + "/" + current_local_time.getFullYear() + " : " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds();
+                                                        if (current_local_time.getDate() == '1')
+                                                            var z = 'st' ;
+                                                            else  if (current_local_time.getDate() == '2')
+                                                            var z = 'nd' ;
+                                                            else if (current_local_time.getDate() == '3')
+                                                            var z = 'rd' ;
+                                                            else var z = 'th';
+                                                        if (current_local_time.getHours() >= '0' && current_local_time.getHours() <= '12' )    
+                                                            var times = 'am'; 
+                                                            else  var times = 'pm'; 
+                                                        
+                                                        local_time.innerHTML = arrMonthName[(current_local_time.getMonth() + 1)]+ " " + current_local_time.getDate() + ""+ z +" " + current_local_time.getFullYear() + "  ,  " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds() +" "+ times;
                                                         setTimeout("local_date()", 1000);
                                                     }
                                                     setTimeout("local_date()", 1000);
@@ -214,9 +226,14 @@
         }
         .positions {
             padding-top: 20px;
-
-           
         }
+        .position-card{
+            padding-left :  20px;
+            padding-right :  20px;
+        
+        }
+           
+        
     </style>
 
     <script src="<?php echo base_url('application/info_checkin.js') ?>"></script>
