@@ -145,7 +145,7 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         // exit();
         for ($i=0; $i < ($sth1['day']) ; $i++) { 
             $sql2 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room,bl_status)
-            VALUE ('$resinfo_id', '$bl_ginfo','$ginfo_in', '$room_id','2') ";
+            VALUE ('$resinfo_id', '$bl_ginfo',DATE_ADD('$ginfo_in', INTERVAL $i DAY), '$room_id','2') ";
             $this->db->query($sql2);
         }
         
