@@ -159,7 +159,7 @@
                 </nav>
 
                 <div class="content">
-                    <div class="card">
+                    <div class="card position-card ">
                         <div class="card-header">
                             <div class="col-md-12">
                                 <div>
@@ -226,9 +226,14 @@
         }
         .positions {
             padding-top: 20px;
-
-           
         }
+        .position-card{
+            padding-left :  20px;
+            padding-right :  20px;
+        
+        }
+           
+        
     </style>
 
     <script src="<?php echo base_url('application/info_checkin.js') ?>"></script>
