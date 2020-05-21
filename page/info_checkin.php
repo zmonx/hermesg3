@@ -218,19 +218,7 @@
         </div>
     </body>
     <style>
-        .dataTables_wrapper .dataTables_filter input {
-            display: block;
-            width: 100%;
-            padding: 0.375rem 0;
-            margin-bottom: 0;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #212529;
-            background-color: transparent;
-            border: solid transparent;
-            border-width: 1px 0;
-            border-color:#404142;
-        }
+        
         .fixposition {
             margin-top: 25px;
             margin-left: 25px;
