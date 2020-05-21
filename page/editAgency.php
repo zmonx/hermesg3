@@ -7,8 +7,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -22,7 +21,7 @@
 </head>
 
 <body>
-<div class="wrapper">
+    <div class="wrapper">
         <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
             <!--
          Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
@@ -87,8 +86,8 @@
                 </ul>
             </div>
         </div>
-<div class="main-panel">
-<!-- Navbar -->
+        <div class="main-panel">
+            <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#pablo"> Agency add delete and edit agency information </a>
@@ -164,9 +163,9 @@
 
                                 </div>
                                 <div class="col-md-7 text-right">
-                                <label class="checkbox-inline">Delete this record click <input type="checkbox" id="deleteRecord"></label>
-                                    <button type="button" id="btnAgencyDelete" class="btn btn-danger" >Delete</button>
-                                    <button type="button" id="btnAgencyEdit" class="btn btn-primary">Save</button>
+                                    <label class="checkbox-inline">Delete this record click <input type="checkbox" id="deleteRecord"></label>
+                                    <button type="button" id="btnAgencyDelete" class="btn btn-danger">Delete</button>
+                                    <button type="button" id="btnAgencyEdit"   class="btn btn-primary">Save</button>
                                     <button type="button" id="btn_close" class="btn btn-info">Close</button>
                                 </div>
                             </div>
@@ -180,7 +179,7 @@
                                         <div class="form-group ">
                                             <label for="">Code : </label>
                                             <br>
-                                            <input type="text" class="form-control" id="agency_code" required  maxlength="50">
+                                            <input type="text" class="form-control" id="agency_code" required maxlength="50">
                                         </div>
                                     </div>
 
@@ -188,7 +187,7 @@
                                         <div class="form-group ">
                                             <label for="">Agency name : </label>
                                             <br>
-                                            <input type="text" class="form-control" id="agency_name" required  maxlength="50">
+                                            <input type="text" class="form-control" id="agency_name" required maxlength="50">
                                         </div>
                                     </div>
 
@@ -196,7 +195,7 @@
                                         <div class="form-group">
                                             <label for="">Commision(%) : </label>
                                             <br>
-                                            <input type="number" class="form-control" id="agency_price" required  maxlength="50">
+                                            <input type="number" class="form-control" id="agency_price" required maxlength="50">
                                         </div>
                                     </div>
 
@@ -243,51 +242,82 @@
                                             <input type="text" class="form-control" id="agency_comment">
                                         </div>
                                     </div>
-                            
+
                                 </div>
                             </div>
                         </form>
+                        <!-- Modal -->
+                        <!-- ALERT ARE YOU SURE? -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">EDIT AGENCY INFORMATION
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ARE YOU SURE WANT TO CHANGES ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn_yes_update">Save
+                                            changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ALERT BOX SUCCESS -->
+                        <div id="modal_alert" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content alert alert-success">
+                                    SAVE SUCCESSFULLY
+                                </div>
+                            </div>
+                        </div>
                         <!-- END form -->
                     </div>
                 </div>
-                
+
             </div>
             <footer class="footer">
-            <div class="container-fluid">
-                <nav>
-                    <ul class="footer-menu">
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-center">
-                        ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                    </p>
-                </nav>
-            </div>
-        </footer>
-    </div>
+                <div class="container-fluid">
+                    <nav>
+                        <ul class="footer-menu">
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Company
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blog
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
 
 </body>
 <!--   Core JS Files   -->

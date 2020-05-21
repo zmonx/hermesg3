@@ -29,7 +29,7 @@ function delAgency() {
   dataDelete.agency_id = vars[1];
   const cb = document.querySelector('#deleteRecord');
   result = cb.checked;
-  alert(result);
+//   alert(result);
   if(result==true){
     url = base_url("api.php/delAgencyConfirm")
   }else{
@@ -40,7 +40,7 @@ function delAgency() {
   $.post(url, dataDelete, function (response) {
     console.log(response);
     if (response['message'] == "success") {
-      alert("success");
+    //   alert("success");
       $('#modal_alert').modal('show');
       setTimeout(redirectAgency, 800);
     }else{
@@ -66,9 +66,9 @@ function editAgency() {
   $.post(url, data3, function (response) {
     console.log(response);
     if (response['message'] == "success") {
-      alert("success");
-      // $('#modal_alert').modal('show');
-      // setTimeout(reload, 800);
+    //   alert("success");
+      $('#modal_alert').modal('show');
+      setTimeout(redirectAgency, 800);
     }else{
       alert("fail")
     }
