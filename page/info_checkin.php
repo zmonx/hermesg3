@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </nav>
-
+                <!-- CONTENT -->
                 <div class="content">
                     <div class="card position-card ">
                         <div class="card-header">
@@ -181,7 +181,6 @@
                                                         if (current_local_time.getHours() >= '0' && current_local_time.getHours() <= '12')
                                                             var times = 'am';
                                                         else var times = 'pm';
-
                                                         local_time.innerHTML = arrMonthName[(current_local_time.getMonth() + 1)] + " " + current_local_time.getDate() + "" + z + " " + current_local_time.getFullYear() + "  ,  " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds() + " " + times;
                                                         setTimeout("local_date()", 1000);
                                                     }
@@ -196,7 +195,7 @@
                         <div class="card-body">
                             <hr>
                             <div class="table-responsive table-full-width">
-                                <table class="table table-hover" id="data_table">
+                                <table class="table table-hover ui celled table" id="data_table">
                                     <thead>
                                         <tr>
                                             <th></th>
@@ -218,24 +217,19 @@
         </div>
         </div>
     </body>
-
     <style>
         .fixposition {
             margin-top: 25px;
             margin-left: 25px;
         }
-
         .positions {
             padding-top: 20px;
         }
-
         .position-card {
             padding-left: 20px;
             padding-right: 20px;
-
         }
     </style>
-
     <script src="<?php echo base_url('application/info_checkin.js') ?>"></script>
     <!--   Core JS Files   -->
     <script src="<?php echo base_url('assets/js/core/jquery.3.2.1.min.js') ?>" type="text/javascript"></script>
@@ -261,7 +255,4 @@
     <script src="<?php echo base_url('application/add_reservations.js') ?>"></script>
     <script src="<?php echo base_url('application/save_addroom.js') ?>"></script>
     <script src="<?php echo base_url('application/edit_infoguest.js') ?>"></script>
-
-
-
 </html>
