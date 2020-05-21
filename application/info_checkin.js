@@ -15,24 +15,25 @@ function display_info_checkin() {
       console.log(item);
       line += "<tr>";
       line += "<td><button type= 'button' class='btn btn-info btn-round'>Info</button></td>";
-      line += "<td >" + item.ginfo_first_name + "</td>";
-      line += "<td >" + item.room_name + "</td>";
-      line += "<td >" + item.ginfo_telno + "</td>";
-      line += "<td >" + item.ginfo_in + "</td>";
+      line += "<td>" + item.ginfo_first_name + "</td>";
+      line += "<td>" + item.room_name + "</td>";
+      line += "<td>" + item.ginfo_telno + "</td>";
+      line += "<td>" + item.ginfo_in + "</td>";
       line += "<td >" + item.ginfo_out + "</td>";
-      // line += "<td >" + item. + "</td>"; ขาด status ไม่รู้เอาจากไหน
+      line += "<td >" + '' + "</td>"; //ขาด status ไม่รู้เอาจากไหน
       line += "</tr>";
     });
 
-    $("#display").empty();
-    $("#display").append(line);
+    // $("#display").empty();
+    $("#display").html(line);
 
-    $('#data_table').DataTable({
-      "autoWidth": true,
-      "pageLength": 25,
-      "searching": false,
-      "paging": false,
-      "info": false
+    $('#data_table').DataTable(
+    //   "autoWidth": true,
+    //   "pageLength": 25,
+    //   "searching": false,
+    //   "paging": false,
+    //   "info": false
+    );
   });
 
 //   $('#data_table').dataTable({
@@ -42,8 +43,4 @@ function display_info_checkin() {
 //     "bInfo": false,
 //     "bAutoWidth": false });
 // });
-
-
-  });
-
 }

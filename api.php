@@ -146,9 +146,9 @@ $app->post('/saveadd', function (Request $request, Response $response, array $ar
         for ($i=0; $i < ($sth1['day']) ; $i++) { 
             $sql2 = "INSERT INTO book_log (bl_reservation, bl_ginfo, bl_checkin, bl_room,bl_status)
             VALUE ('$resinfo_id', '$bl_ginfo','$ginfo_in', '$room_id','2') ";
-            
+            $this->db->query($sql2);
         }
-        $this->db->query($sql2);
+        
         return $this->response->withJson(array('message' => 'success'));
     } catch (PDOException $e) {
         return $this->response->withJson(array('message' => 'false4'));

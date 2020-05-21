@@ -194,13 +194,13 @@
                             <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th ></th>
-                                        <th > Guest name</th>
-                                        <th >Room</th>
-                                        <th >Phone</th>
-                                        <th >Checkin</th>
-                                        <th >Checkout</th>
-                                        <th >Status</th>
+                                        <th></th>
+                                        <th> Guest name</th>
+                                        <th>Room</th>
+                                        <th>Phone</th>
+                                        <th>Checkin</th>
+                                        <th>Checkout</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody id="display">
