@@ -217,4 +217,10 @@ $app->get('/show_gesinfo_checkout', function (Request $request, Response $respon
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
+
+$app->get('/show_data_agency', function (Request $request, Response $response, array $args) {
+    $sql = "SELECT * FROM agency ";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $this->response->withJson($sth);
+});
 $app->run();

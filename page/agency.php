@@ -21,6 +21,11 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="<?php echo base_url('assets/css/demo.css" rel="stylesheet') ?>" />
     <script src="<?php echo base_url('assets/js/jquery-3.5.0.min.js') ?>"></script>
+    <script src="<?php echo base_url('application/show_data_agency.js')?>"></script>
+    
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.css')?>" rel="stylesheet"  />
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>" rel="stylesheet"  />
+
 </head>
 
 <body>
@@ -170,48 +175,38 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label class="mr-sm-2">Show</label>
+                                    <!-- <label class="mr-sm-2">Show</label>
                                     <select class="custom-select mr-sm-2" id=" ">
                                         <option selected>10</option>
                                         <option value="1">11</option>
                                         <option value="2">12</option>
                                         <option value="3">13</option>
                                     </select>
-                                    <label class="mr-sm-2">ertrios</label>
+                                    <label class="mr-sm-2">ertrios</label> -->
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-3 mt-2">search</label>
+                                    <!-- <label for="colFormLabel" class="col-sm-3 mt-2">search</label> -->
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="search" placeholder="search">
+                                        <!-- <input type="email" class="form-control" id="search" placeholder="search"> -->
                                     </div>
                                 </div>
 
                             </div>
-                            <table class="table table-bordered ">
+                            <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table_agency">
                                 <thead>
                                     <tr>
-                                        <th scope="col">-</th>
-                                        <th scope="col">Code</th>
-                                        <th scope="col">Agency Name</th>
-                                        <th scope="col">Sale Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">#Phone</th>
-                                        <th scope="col">Comlssion(%)</th>
+                                        <th></th>
+                                        <th>Code</th>
+                                        <th>Agency Name</th>
+                                        <th>Sale Name</th>
+                                        <th>Email</th>
+                                        <th>#Phone</th>
+                                        <th>Comlssion(%)</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <button type="submit" id="info" class="btn btn-primary btn-round btn-sm">+ info</button>
-                                        </th>
-                                        <td>Book</td>
-                                        <td>booking.com</td>
-                                        <td>Choticha Suwan</td>
-                                        <td>Choh@booking.com</td>
-                                        <td>087-887519</td>
-                                        <td>15.00</td>
-                                    </tr>
+                                <tbody id="agency">
+                                    
                                 </tbody>
                             </table>
                             <div>

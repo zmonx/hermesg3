@@ -3,9 +3,9 @@ $(() => {
 });
 
 function display_info_checkin() {
-  var query = window.location.search.substring(1);
-  var vars = query.split("=");
-  var ID = vars[1];
+  // var query = window.location.search.substring(1);
+  // var vars = query.split("=");
+  // var ID = vars[1];
   var urlAPI = base_url("api.php/show_gesinfo_checkout");
   $.getJSON(urlAPI).done(function (data) {
     //console.log(JSON.stringify(data));
@@ -29,8 +29,19 @@ function display_info_checkin() {
 
     $('#data_table').DataTable({
       "autoWidth": true,
-      "pageLength": 25
+      "pageLength": 25,
+      "searching": false,
+      "paging": false,
+      "info": false
   });
+
+//   $('#data_table').dataTable({
+//     "bPaginate": false,
+//     "bLengthChange": false,
+//     "bFilter": true,
+//     "bInfo": false,
+//     "bAutoWidth": false });
+// });
 
 
   });

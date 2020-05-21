@@ -20,8 +20,11 @@
     <link href="<?php echo base_url('assets/css/light-bootstrap-dashboard.css?v=2.0.0')?> " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="<?php echo base_url('assets/css/demo.css')?>" />
-    <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>" />
     <script src="<?php echo base_url('assets/js/jquery-3.5.0.min.js')?>"></script>
+
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.css')?>" rel="stylesheet"  />
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>" rel="stylesheet"  />
+   
 </head>
 
 <body>
@@ -161,14 +164,14 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <h4>September 9th 2018, 7:33:52 am</h4>
-                                    <hr>
+                                    <hr><br><br><br><br>
                                 </div>
                             
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <label class="mr-sm-2">Show</label>
                                     <select class="custom-select mr-sm-2" id=" ">
                                         <option selected>10</option>
@@ -184,20 +187,20 @@
                                     <div class="col-sm-9">
                                         <input type="search" class="form-control" id="search_info_checkin" placeholder="search">
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                             <form action="" method="GET"></form>
                             <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col"> Guest name</th>
-                                        <th scope="col">Room</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">Checkin</th>
-                                        <th scope="col">Checkout</th>
-                                        <th scope="col">Status</th>
+                                        <th ></th>
+                                        <th > Guest name</th>
+                                        <th >Room</th>
+                                        <th >Phone</th>
+                                        <th >Checkin</th>
+                                        <th >Checkout</th>
+                                        <th >Status</th>
                                     </tr>
                                 </thead>
                                 <tbody id="display">
@@ -242,8 +245,7 @@
     <script src="<?php echo base_url('assets/js/plugins/bootstrap-switch.js')?>"></script>
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!--    Data table     -->
-    <script src="<?php echo base_url('assets/js/jquery.dataTables.min.css')?>"></script>
+   
     <!--  Chartist Plugin  -->
     <script src="<?php echo base_url('assets/js/plugins/chartist.min.js')?>"></script>
     <!--  Notifications Plugin    -->
@@ -252,6 +254,10 @@
     <script src="<?php echo base_url('assets/js/light-bootstrap-dashboard.js?v=2.0.0')?> " type="text/javascript"></script>
     <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
     <script src="<?php echo base_url('assets/js/demo.js')?>"></script>
+     <!--    Data table     -->
+     <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js')?>"></script>
+     <script src="<?php echo base_url('assets/js/jquery.dataTables.js')?>"></script>
+
     <script src="<?php echo base_url('application/add_reservations.js')?>"></script>
     <script src="<?php echo base_url('application/save_addroom.js')?>"></script>
     <script src="<?php echo base_url('application/edit_infoguest.js')?>"></script>
