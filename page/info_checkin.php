@@ -171,11 +171,11 @@
                                                     function local_date(now_time) {
                                                         var arrMonthName = new Array("", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
                                                         current_local_time = new Date();
-                                                        if (current_local_time.getDate() == '1')
+                                                        if (current_local_time.getDate() == '1'&& current_local_time.getDate() =='21'&& current_local_time.getDate() =='31')
                                                             var z = 'st';
-                                                        else if (current_local_time.getDate() == '2')
+                                                        else if (current_local_time.getDate() == '2'&& current_local_time.getDate() == '22')
                                                             var z = 'nd';
-                                                        else if (current_local_time.getDate() == '3')
+                                                        else if (current_local_time.getDate() == '3' && current_local_time.getDate() == '23')
                                                             var z = 'rd';
                                                         else var z = 'th';
                                                         if (current_local_time.getHours() >= '0' && current_local_time.getHours() <= '12')
