@@ -20,19 +20,29 @@ $(() => {
         line += "<td >" + item.agency_contact_name + "</td>";
         line += "<td >" + item.agency_email + "</td>";
         line += "<td >" + item.agency_telno + "</td>";
-        line += "<td ></td>"; //commission
+        line += "<td >" +item.agency_price + "</td>"; //commission
         line += "</tr>";
       });
+
+      $("#agency").html(line);
+
+    $('#data_table_agency').DataTable(
+    //   "autoWidth": true,
+    //   "pageLength": 25,
+    //   "searching": false,
+    //   "paging": false,
+    //   "info": false
+    );
+  });
   
-      $("#agency").empty();
-      $("#agency").append(line);
+    //   $("#agency").empty();
+    //   // $("#agency").append(line);
   
-      $('#data_table_agency').DataTable({
-        "pageLength": 25,
-        "searching": false
+    //   $('#data_table_agency').DataTable({
+    //     "pageLength": 25,
+    //     "searching": false
       
-    });  
-    });
+  
   
   }
   

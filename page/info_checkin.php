@@ -184,7 +184,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th> Guest name</th>
+                            <th>Guest name</th>
                             <th>Room</th>
                             <th>Phone</th>
                             <th>Checkin</th>

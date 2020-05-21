@@ -210,8 +210,6 @@
                                 </tbody>
                             </table>
                             <div>
-                                <label class="mr-sm-2">Showing 1 to 2 entries</label>
-                            </div>
 
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">
