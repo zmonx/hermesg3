@@ -301,4 +301,19 @@ $app->post('/updateAgency', function (Request $request, Response $response, arra
         return $this->response->withJson(array('message' => 'false'));
     }
 });
+//---------------------------group 2 ------------------------
+$app->get('/add_agency/{code}/{name}/{address}/{sales}/{email}/{tel}/{commission}/{comment}', function (Request $request, Response $response, array $args) {
+    $code = $args['code'];
+    $name = $args['name'];
+    $address = $args['address'];
+    $sales = $args['sales'];
+    $email = $args['email'];
+    $tel = $args['tel'];
+    $commission = $args['commission'];
+    $comment = $args['comment'];
+ 
+    $sql = "INSERT INTO agency (agency_code, agency_name, agency_address ,agency_contact_name, agency_email ,agency_telno , agency_price, agency_comment)
+    VALUES ($code,'$name','$address', '$sales','$email','$tel','$commission','$comment')";
+    $this->db->query($sql);
+});
 $app->run();

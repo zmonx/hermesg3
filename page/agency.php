@@ -167,7 +167,7 @@
                                     <h3 class="mt-4 fixposition">AGENCY</h3>
                                 </div>
                                 <div class="col-md-2 mt-4">
-                                    <button type="submit" id="add_agency" class="btn btn-primary btn-round">Add Agency</button>
+                                    <a href="<?php echo base_url('page/add_agency.php') ?>"><button type="submit" id="add_agency" class="btn btn-primary btn-round">Add Agency</button></a>
                                 </div>
                             </div>
                            
