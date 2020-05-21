@@ -158,60 +158,50 @@
                     </div>
                 </nav>
 
-                <div class="col-md-12">
-                    <div class="card bg-primary text-white">
-                        <h3 class="card-title text-center mb-2">
-                            <div class="d-flex flex-wrap justify-content-center mt-2">
-                                <div class="colordate">
-                                    <div id="local_time">&nbsp;</div>
-                                    <script language="JavaScript1.2">
-                                        function local_date(now_time) {
-                                            current_local_time = new Date();
-
-                                            local_time.innerHTML = current_local_time.getDate() + "/" + (current_local_time.getMonth() + 1) + "/" + current_local_time.getYear() + " " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds();
-
-                                            setTimeout("local_date()", 1000);
-                                        }
-
-                                        setTimeout("local_date()", 1000);
-                                    </script>
+                <div class="content">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="col-md-12">
+                                <div>
+                                    <h2 class="positions card-title text-center mb-2 ">
+                                        <div class="d-flex flex-wrap justify-content-center mt-2">
+                                            <div >
+                                                <div id="local_time">&nbsp;</div>
+                                                <script language="JavaScript1.2">
+                                                    function local_date(now_time) {
+                                                        current_local_time = new Date();
+                                                        local_time.innerHTML = current_local_time.getDate() + "/" + (current_local_time.getMonth() + 1) + "/" + current_local_time.getFullYear() + " : " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds();
+                                                        setTimeout("local_date()", 1000);
+                                                    }
+                                                    setTimeout("local_date()", 1000);
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </h2>
                                 </div>
-                        </h3>
+                            </div>
+                        </div>
+                        <div class="card-body"><hr>
+                        <form action="" method="GET"></form>
+                        <div class="table-responsive table-full-width">
+                        <table class="table table-hover" id="data_table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Guest name</th>
+                                        <th>Room</th>
+                                        <th>Phone</th>
+                                        <th>Checkin</th>
+                                        <th>Checkout</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="display">
+                            </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <form action="" method="GET"></form>
-                <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Guest name</th>
-                            <th>Room</th>
-                            <th>Phone</th>
-                            <th>Checkin</th>
-                            <th>Checkout</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="display">
-
-                        <!-- <th><button type="submit" id="Agency" class="btn btn-primary"> + info </button></th> -->
-                    </tbody>
-                </table>
-                <div>
-                    <label class="mr-sm-2">Showing 1 to 1 of 1 entries</label>
-                </div>
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
         </div>
@@ -222,10 +212,14 @@
             margin-top: 25px;
             margin-left: 25px;
         }
+        .positions {
+            padding-top: 20px;
+
+           
+        }
     </style>
 
     <script src="<?php echo base_url('application/info_checkin.js') ?>"></script>
-
     <!--   Core JS Files   -->
     <script src="<?php echo base_url('assets/js/core/jquery.3.2.1.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/js/core/popper.min.js') ?>" type="text/javascript"></script>
