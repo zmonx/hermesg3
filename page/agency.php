@@ -21,10 +21,10 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="<?php echo base_url('assets/css/demo.css" rel="stylesheet') ?>" />
     <script src="<?php echo base_url('assets/js/jquery-3.5.0.min.js') ?>"></script>
-    <script src="<?php echo base_url('application/show_data_agency.js')?>"></script>
-    
-    <link href="<?php echo base_url('assets/css/jquery.dataTables.css')?>" rel="stylesheet"  />
-    <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>" rel="stylesheet"  />
+    <script src="<?php echo base_url('application/show_data_agency.js') ?>"></script>
+
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css') ?>" rel="stylesheet" />
 
 </head>
 
@@ -160,43 +160,40 @@
                 </nav>
 
                 <div class="content">
-                    <div class="card">
+                    <div class="card position-card">
                         <div class="card-head">
                             <div class="row">
                                 <div class="col-md-10">
                                     <h3 class="mt-4 fixposition">AGENCY</h3>
                                 </div>
-                                <div class="col-md-2 mt-3">
+                                <div class="col-md-2 mt-4">
                                     <button type="submit" id="add_agency" class="btn btn-primary btn-round">Add Agency</button>
                                 </div>
                             </div>
-                            <HR>
+                           
                         </div>
                         <div class="card-body">
-                            <div class="row">
+                            <hr>
+                            <div class="table-responsive table-full-width">
+                                <table class="table table-hover" id="data_table_agency">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Code</th>
+                                            <th>Agency Name</th>
+                                            <th>Sale Name</th>
+                                            <th>Email</th>
+                                            <th>#Phone</th>
+                                            <th>Comlssion(%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="agency">
+                                    </tbody>
+                                </table>
                             </div>
-                            <table class="table pmd-table table-hover table-striped display dt-responsive nowrap" id="data_table_agency">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Code</th>
-                                        <th>Agency Name</th>
-                                        <th>Sale Name</th>
-                                        <th>Email</th>
-                                        <th>#Phone</th>
-                                        <th>Comlssion(%)</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="agency">
-                                    
-                                </tbody>
-                            </table>
-                            <div>
-
                         </div>
                     </div>
                 </div>
-
                 <footer class="footer">
                     <div class="container-fluid">
                         <nav>
@@ -228,8 +225,18 @@
 
     <style>
         .fixposition {
-            margin-top: 25px;
+            padding-top: 20px;
             margin-left: 25px;
+        }
+        .fixpositions {
+            padding-top: 20px;
+            margin-right: 25px;
+        }
+
+        .position-card {
+            padding-left: 20px;
+            padding-right: 20px;
+
         }
     </style>
 

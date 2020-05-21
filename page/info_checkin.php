@@ -165,24 +165,24 @@
                                 <div>
                                     <h2 class="positions card-title text-center mb-2 ">
                                         <div class="d-flex flex-wrap justify-content-center mt-2">
-                                            <div >
+                                            <div>
                                                 <div id="local_time">&nbsp;</div>
                                                 <script language="JavaScript1.2">
                                                     function local_date(now_time) {
-                                                        var arrMonthName = new Array("","January","February","March","April","May","June","July","August","September","October","November","December");
+                                                        var arrMonthName = new Array("", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
                                                         current_local_time = new Date();
                                                         if (current_local_time.getDate() == '1')
-                                                            var z = 'st' ;
-                                                            else  if (current_local_time.getDate() == '2')
-                                                            var z = 'nd' ;
-                                                            else if (current_local_time.getDate() == '3')
-                                                            var z = 'rd' ;
-                                                            else var z = 'th';
-                                                        if (current_local_time.getHours() >= '0' && current_local_time.getHours() <= '12' )    
-                                                            var times = 'am'; 
-                                                            else  var times = 'pm'; 
-                                                        
-                                                        local_time.innerHTML = arrMonthName[(current_local_time.getMonth() + 1)]+ " " + current_local_time.getDate() + ""+ z +" " + current_local_time.getFullYear() + "  ,  " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds() +" "+ times;
+                                                            var z = 'st';
+                                                        else if (current_local_time.getDate() == '2')
+                                                            var z = 'nd';
+                                                        else if (current_local_time.getDate() == '3')
+                                                            var z = 'rd';
+                                                        else var z = 'th';
+                                                        if (current_local_time.getHours() >= '0' && current_local_time.getHours() <= '12')
+                                                            var times = 'am';
+                                                        else var times = 'pm';
+
+                                                        local_time.innerHTML = arrMonthName[(current_local_time.getMonth() + 1)] + " " + current_local_time.getDate() + "" + z + " " + current_local_time.getFullYear() + "  ,  " + current_local_time.getHours() + ":" + current_local_time.getMinutes() + ":" + current_local_time.getSeconds() + " " + times;
                                                         setTimeout("local_date()", 1000);
                                                     }
                                                     setTimeout("local_date()", 1000);
@@ -193,23 +193,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body"><hr>
-                        <form action="" method="GET"></form>
-                        <div class="table-responsive table-full-width">
-                        <table class="table table-hover" id="data_table">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Guest name</th>
-                                        <th>Room</th>
-                                        <th>Phone</th>
-                                        <th>Checkin</th>
-                                        <th>Checkout</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="display">
-                            </table>
+                        <div class="card-body">
+                            <hr>
+                            <div class="table-responsive table-full-width">
+                                <table class="table table-hover" id="data_table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Guest name</th>
+                                            <th>Room</th>
+                                            <th>Phone</th>
+                                            <th>Checkin</th>
+                                            <th>Checkout</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="display">
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -224,16 +224,16 @@
             margin-top: 25px;
             margin-left: 25px;
         }
+
         .positions {
             padding-top: 20px;
         }
-        .position-card{
-            padding-left :  20px;
-            padding-right :  20px;
-        
+
+        .position-card {
+            padding-left: 20px;
+            padding-right: 20px;
+
         }
-           
-        
     </style>
 
     <script src="<?php echo base_url('application/info_checkin.js') ?>"></script>
