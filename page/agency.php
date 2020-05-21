@@ -278,6 +278,10 @@
     <script src="<?php echo base_url('assets/js/light-bootstrap-dashboard.js?v=2.0.0') ?> " type="text/javascript"></script>
     <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
     <script src="<?php echo base_url('assets/js/demo.js') ?>"></script>
+    <!--data table-->
+    <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.dataTables.js') ?>"></script>
+
     <script src="<?php echo base_url('application/add_reservations.js') ?>"></script>
     <script src="<?php echo base_url('application/save_addroom.js') ?>"></script>
     <script src="<?php echo base_url('application/edit_infoguest.js') ?>"></script>
