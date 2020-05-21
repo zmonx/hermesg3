@@ -219,8 +219,86 @@ $app->get('/show_gesinfo_checkout', function (Request $request, Response $respon
 });
 
 $app->get('/show_data_agency', function (Request $request, Response $response, array $args) {
-    $sql = "SELECT * FROM agency ";
+    $sql = "SELECT * FROM agency WHERE agency_flag ='0' ";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
+});
+
+//---------------group 5 -------------------------
+
+$app->get('/getAgencyAll', function (Request $request, Response $response, array $args) {
+    $sql = "Select * from agency
+            where agency_flag='0'";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
+    return $this->response->withJson($sth);
+});
+ 
+$app->get('/getAgencyinfo/{agency_id}', function (Request $request, Response $response, array $args) {
+    $agency_id = $args['agency_id'];
+    $sql = "Select * from agency
+            where agency_id='".$agency_id."' and agency_flag='0'";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
+    return $this->response->withJson($sth);
+});
+ 
+$app->post('/delAgency', function (Request $request, Response $response, array $args) {
+    $params = $_POST;
+    $agency_id = $params['agency_id'];
+ 
+    $sql = "UPDATE agency SET agency_flag = '1' WHERE agency_id = '".$agency_id."' and agency_flag='0'";
+    
+    try {
+        $this->db->query($sql);
+        return $this->response->withJson(array('message' => 'success'));
+    } catch (PDOException $e) {
+        return $this->response->withJson(array('message' => 'false'));
+    }
+});
+
+$app->post('/delAgencyConfirm', function (Request $request, Response $response, array $args) {
+    $params = $_POST;
+    $agency_id = $params['agency_id'];
+ 
+    $sql = "DELETE FROM agency WHERE agency_id = '".$agency_id."'";
+    
+    try {
+        $this->db->query($sql);
+        return $this->response->withJson(array('message' => 'success'));
+    } catch (PDOException $e) {
+        return $this->response->withJson(array('message' => 'false'));
+    }
+});
+ 
+$app->post('/updateAgency', function (Request $request, Response $response, array $args) {
+    $params = $_POST;
+    $agency_id = $params['agency_id'];
+    $agency_code = $params['agency_code'];
+    $agency_name = $params['agency_name'];
+    $agency_price = $params['agency_price'];
+    $agency_contact_name = $params['agency_contact_name'];
+    $agency_email = $params['agency_email'];
+    $agency_telno = $params['agency_telno'];
+    $agency_address = $params['agency_address'];
+    $agency_comment = $params['agency_comment'];
+    
+    $sql = "UPDATE agency SET  
+        agency_code = '".$agency_code."',
+        agency_name = '".$agency_name."',
+        agency_price = '".$agency_price."',
+        agency_contact_name = '".$agency_contact_name."',
+        agency_email = '".$agency_email."',
+        agency_telno = '".$agency_telno."',
+        agency_address = '".$agency_address."',
+        agency_comment = '".$agency_comment."'
+    WHERE agency_id = '".$agency_id."'";
+    
+    try {
+        $this->db->query($sql);
+        return $this->response->withJson(array('message' => 'success'));
+    } catch (PDOException $e) {
+        return $this->response->withJson(array('message' => 'false'));
+    }
 });
 $app->run();
