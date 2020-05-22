@@ -231,7 +231,7 @@
             padding-right: 20px;
         }
     </style>
-    <script src="<?php echo base_url('application/info_checkin.js') ?>"></script>
+    <script src="<?php echo base_url('application/info_checkout.js') ?>"></script>
     <!--   Core JS Files   -->
     <script src="<?php echo base_url('assets/js/core/jquery.3.2.1.min.js') ?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/js/core/popper.min.js') ?>" type="text/javascript"></script>
