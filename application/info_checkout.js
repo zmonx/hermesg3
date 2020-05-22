@@ -20,7 +20,28 @@ function display_info_checkin() {
       line += "<td>" + item.ginfo_telno + "</td>";
       line += "<td>" + item.ginfo_in + "</td>";
       line += "<td >" + item.ginfo_out + "</td>";
-      line += "<td >" + '' + "</td>"; //ขาด status ไม่รู้เอาจากไหน
+      line += "<td >";
+      switch(item['bl_status']){
+        case "0":
+          line+="No Specific";break;
+        case "1":
+          line+="Avaliable";break;
+        case "2":
+          line+="Vacant";break;
+        case "3":
+          line+="Occupy";break;
+        case "4":
+          line+="Dirty";break;
+        case "5":
+          line+="๐๐๐";break;
+        case "6":
+          line+="House Use";break; 
+          case "7":
+          line+="Block";break; 
+          case "8":
+          line+="Reserved";break;
+      }
+      + item.bl_status + "</td>"; 
       line += "</tr>";
     });
 
